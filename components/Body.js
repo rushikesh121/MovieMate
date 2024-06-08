@@ -3,7 +3,9 @@ import React from 'react'
 export default function Body() {
   return (
     <div>
-      body
+    <h1>
+      This is Body you write your code here....
+    </h1>
         </div>
   )
 }

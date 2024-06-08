@@ -34192,7 +34192,13 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 function Body() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: "body"
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+            children: "This is Body you write your code here...."
+        }, void 0, false, {
+            fileName: "components/Body.js",
+            lineNumber: 6,
+            columnNumber: 5
+        }, this)
     }, void 0, false, {
         fileName: "components/Body.js",
         lineNumber: 5,
