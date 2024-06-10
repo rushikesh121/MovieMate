@@ -7,7 +7,6 @@ export default function Header() {
   return (
     <div className="bg-gray-600 flex justify-between  items-center shadow-sm shad shadow-white px-[40px] h-[80px] rounded-md w-full">
       <h1 className=" relative uppercase text-md font-serif opacity-80">moviemate 
-        <span className="absolute left-0 top-9 rounded-xl bg-white w-[200px] h-[1px]"></span>
       </h1>
       <ul className="flex flex-row gap-7">
         <Link to="/">
