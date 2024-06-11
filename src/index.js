@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "../public/index.css";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-
+import MovieInfo from "../components/MovieInfo"
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -31,8 +31,8 @@ const Approuter = createBrowserRouter([
                     element:<Body/>
                 },
                 {
-                    path:"/category/:id",
-                    element:<About/>
+                    path:"/detail/:id",
+                    element:<MovieInfo/>
                 },
                 {
                     path:"/result/:id",

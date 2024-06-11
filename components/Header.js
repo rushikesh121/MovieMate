@@ -15,12 +15,12 @@ export default function Header() {
             Home
           </li>
         </Link>
-        <Link to="/result/pupular">
+        <Link to="/result/popular">
           <li className="cursor-pointer  hover:text-black transition-all duration-300">
             Popular
           </li>
         </Link>
-        <Link to="/result/trending">
+        <Link to="/result/top_rated">
           <li className="cursor-pointer  hover:text-black transition-all duration-300">
             Trending
           </li>
