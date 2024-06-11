@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Body from "./Body";  
+import Body from "./Body";
+import ShowData from "./ShowData";  
 
 export default function Header() {
   const [search,setSearch]=useState("");

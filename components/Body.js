@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import KEY from "../src/utils";
-
+import ShowData from "./ShowData";
+  import { Link } from "react-router-dom";
 export default function Body() {
   const [movie, setMovie] = useState([]);
 
@@ -10,6 +11,7 @@ export default function Body() {
     );
     const da = await data.json();
     setMovie(da.results);
+    console.log(da);
   }
   console.log(movie);
   useEffect(() => {
@@ -19,7 +21,10 @@ export default function Body() {
   return(
     <div className="flex gap-5 flex-wrap">
           {movie.map((data)=>{
-            return <ShowData  d={...data}/>
+             
+            return <Link to={`/result/${data.id}`}>
+               <ShowData {...data} />
+             </Link>
           })}
     </div>
   )

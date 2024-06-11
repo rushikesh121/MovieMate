@@ -34029,6 +34029,8 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
 var _body = require("./Body");
 var _bodyDefault = parcelHelpers.interopDefault(_body);
+var _showData = require("./ShowData");
+var _showDataDefault = parcelHelpers.interopDefault(_showData);
 var _s = $RefreshSig$();
 function Header() {
     _s();
@@ -34041,7 +34043,7 @@ function Header() {
                 children: "moviemate"
             }, void 0, false, {
                 fileName: "components/Header.js",
-                lineNumber: 9,
+                lineNumber: 10,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -34054,12 +34056,12 @@ function Header() {
                             children: "Home"
                         }, void 0, false, {
                             fileName: "components/Header.js",
-                            lineNumber: 13,
+                            lineNumber: 14,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "components/Header.js",
-                        lineNumber: 12,
+                        lineNumber: 13,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34069,12 +34071,12 @@ function Header() {
                             children: "Popular"
                         }, void 0, false, {
                             fileName: "components/Header.js",
-                            lineNumber: 18,
+                            lineNumber: 19,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "components/Header.js",
-                        lineNumber: 17,
+                        lineNumber: 18,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34084,12 +34086,12 @@ function Header() {
                             children: "Trending"
                         }, void 0, false, {
                             fileName: "components/Header.js",
-                            lineNumber: 23,
+                            lineNumber: 24,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "components/Header.js",
-                        lineNumber: 22,
+                        lineNumber: 23,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34099,18 +34101,18 @@ function Header() {
                             children: "Action"
                         }, void 0, false, {
                             fileName: "components/Header.js",
-                            lineNumber: 28,
+                            lineNumber: 29,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "components/Header.js",
-                        lineNumber: 27,
+                        lineNumber: 28,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "components/Header.js",
-                lineNumber: 11,
+                lineNumber: 12,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34126,7 +34128,7 @@ function Header() {
                         className: "border-l-slate-800 border p-2 rounded-xl mr-1 text-black"
                     }, void 0, false, {
                         fileName: "components/Header.js",
-                        lineNumber: 34,
+                        lineNumber: 35,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34137,24 +34139,24 @@ function Header() {
                             children: "Search"
                         }, void 0, false, {
                             fileName: "components/Header.js",
-                            lineNumber: 44,
+                            lineNumber: 45,
                             columnNumber: 9
                         }, this)
                     }, void 0, false, {
                         fileName: "components/Header.js",
-                        lineNumber: 43,
+                        lineNumber: 44,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "components/Header.js",
-                lineNumber: 33,
+                lineNumber: 34,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "components/Header.js",
-        lineNumber: 8,
+        lineNumber: 9,
         columnNumber: 5
     }, this);
 }
@@ -34168,7 +34170,7 @@ $RefreshReg$(_c, "Header");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","./Body":"iJj2X","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iJj2X":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","./Body":"iJj2X","./ShowData":"fRQyX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iJj2X":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3c00 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34183,6 +34185,9 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _utils = require("../src/utils");
 var _utilsDefault = parcelHelpers.interopDefault(_utils);
+var _showData = require("./ShowData");
+var _showDataDefault = parcelHelpers.interopDefault(_showData);
+var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 function Body() {
     _s();
@@ -34191,6 +34196,7 @@ function Body() {
         const data = await fetch("https://api.themoviedb.org/3/trending/movie/day?language=en-US&api_key=e2c44d225d453ec302d21c442b0a785d");
         const da = await data.json();
         setMovie(da.results);
+        console.log(da);
     }
     console.log(movie);
     (0, _react.useEffect)(()=>{
@@ -34199,17 +34205,24 @@ function Body() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "flex gap-5 flex-wrap",
         children: movie.map((data)=>{
-            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ShowData, {
-                d: data
+            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                to: `/result/${data.id}`,
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _showDataDefault.default), {
+                    ...data
+                }, void 0, false, {
+                    fileName: "components/Body.js",
+                    lineNumber: 26,
+                    columnNumber: 16
+                }, this)
             }, void 0, false, {
                 fileName: "components/Body.js",
-                lineNumber: 22,
+                lineNumber: 25,
                 columnNumber: 20
             }, this);
         })
     }, void 0, false, {
         fileName: "components/Body.js",
-        lineNumber: 20,
+        lineNumber: 22,
         columnNumber: 5
     }, this);
 }
@@ -34223,13 +34236,104 @@ $RefreshReg$(_c, "Body");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../src/utils":"en4he","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"en4he":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../src/utils":"en4he","./ShowData":"fRQyX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}],"en4he":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "KEY", ()=>KEY);
+parcelHelpers.export(exports, "apiKey", ()=>apiKey);
+parcelHelpers.export(exports, "imageBaseUrl", ()=>imageBaseUrl);
 const KEY = "963c64d17df40c0207faf121d763e23e";
-exports.default = KEY;
+const apiKey = "963c64d17df40c0207faf121d763e23e";
+const imageBaseUrl = "https://image.tmdb.org/t/p/original";
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"km3Ru":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fRQyX":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$cff9 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$cff9.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>ShowData);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _utils = require("../src/utils");
+function ShowData({ id, backdrop_path, title, genre_ids, poster_path, vote_average, overview }) {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "flex flex-row mx-11 mt-11 flex-wrap group",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "w-[270px] h-[380px] rounded-lg flex cursor-pointer overflow-hidden shadow-lg shadow-black relative justify-center align-middle",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    className: "w-full h-full  object-cover object-fill group-hover:opacity-35  opacity-80 transition-all duration-300 ",
+                    src: `${(0, _utils.imageBaseUrl)}${poster_path}`
+                }, void 0, false, {
+                    fileName: "components/ShowData.js",
+                    lineNumber: 15,
+                    columnNumber: 13
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "absolute h-full w-full flex items-center justify-center  -bottom-80 group-hover:bottom-0 flex-col transition-all duration-300  ",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "uppercase items-center text-xl font-semibold mb-2",
+                            children: title
+                        }, void 0, false, {
+                            fileName: "components/ShowData.js",
+                            lineNumber: 19,
+                            columnNumber: 15
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "uppercase text-sm font-serif ",
+                            children: [
+                                " Rating: ",
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                    className: "bg-white text-black px-1  py-1 rounded-md",
+                                    children: [
+                                        " ",
+                                        vote_average.toFixed(1)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "components/ShowData.js",
+                                    lineNumber: 20,
+                                    columnNumber: 69
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "components/ShowData.js",
+                            lineNumber: 20,
+                            columnNumber: 15
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "components/ShowData.js",
+                    lineNumber: 18,
+                    columnNumber: 13
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "components/ShowData.js",
+            lineNumber: 14,
+            columnNumber: 9
+        }, this)
+    }, void 0, false, {
+        fileName: "components/ShowData.js",
+        lineNumber: 13,
+        columnNumber: 5
+    }, this);
+}
+_c = ShowData;
+var _c;
+$RefreshReg$(_c, "ShowData");
+
+  $parcel$ReactRefreshHelpers$cff9.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../src/utils":"en4he","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"km3Ru":[function(require,module,exports) {
 "use strict";
 var Refresh = require("7422ead32dcc1e6b");
 function debounce(func, delay) {
