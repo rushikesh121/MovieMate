@@ -4,10 +4,8 @@ export default function ShowData({
   id,
   backdrop_path,
   title,
-  genre_ids,
   poster_path,
   vote_average,
-  overview,
 }) {
   return (
     <div className="flex flex-row mx-11 mt-11 flex-wrap group">

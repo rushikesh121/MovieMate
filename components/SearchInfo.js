@@ -19,7 +19,7 @@ export default function SearchInfo() {
   }, []);
   return (
     <div>
-      <h1>Searching results for......{id}</h1>
+      <h1>Searching results for{id}</h1>
     </div>
   );
 }

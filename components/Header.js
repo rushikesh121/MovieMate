@@ -22,7 +22,7 @@ export default function Header() {
         </Link>
         <Link to="/result/top_rated">
           <li className="cursor-pointer  hover:text-black transition-all duration-300 uppercase font-semibold">
-            Trending
+            Now Playing
           </li>
         </Link>
         <Link to="/result/action">
