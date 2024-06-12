@@ -18,13 +18,15 @@ export default function Body() {
   }, []);
 
   return(
-    <div className="flex gap-5 flex-wrap">
+    <div className="">
+      <h1 className="text-center font-semibold text-4xl text-slate-300 ">Discover</h1>
+        <div className="flex gap-2 flex-wrap justify-center">  
           {movie.map((data)=>{
              
-            return <Link to={`/detail/${data.id}`}>
-               <ShowData {...data} />
-             </Link>
-          })}
+             return <Link to={`/detail/${data.id}`}>
+                <ShowData {...data} />
+              </Link>
+           })}</div>
     </div>
   )
 }

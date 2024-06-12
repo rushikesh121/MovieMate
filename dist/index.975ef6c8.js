@@ -2963,12 +2963,12 @@ var _indexCss = require("../public/index.css");
 var _reactRouterDom = require("react-router-dom");
 var _movieInfo = require("../components/MovieInfo");
 var _movieInfoDefault = parcelHelpers.interopDefault(_movieInfo);
+var _searchInfo = require("../components/SearchInfo");
+var _searchInfoDefault = parcelHelpers.interopDefault(_searchInfo);
 var _header = require("../components/Header");
 var _headerDefault = parcelHelpers.interopDefault(_header);
 var _footer = require("../components/Footer");
 var _footerDefault = parcelHelpers.interopDefault(_footer);
-var _search = require("../components/Search");
-var _searchDefault = parcelHelpers.interopDefault(_search);
 var _show = require("../components/Show");
 var _showDefault = parcelHelpers.interopDefault(_show);
 var _body = require("../components/Body");
@@ -2980,17 +2980,17 @@ function App() {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
                 fileName: "src/index.js",
-                lineNumber: 17,
+                lineNumber: 16,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
                 fileName: "src/index.js",
-                lineNumber: 18,
+                lineNumber: 17,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _footerDefault.default), {}, void 0, false, {
                 fileName: "src/index.js",
-                lineNumber: 19,
+                lineNumber: 18,
                 columnNumber: 7
             }, this)
         ]
@@ -3002,7 +3002,7 @@ const Approuter = (0, _reactRouterDom.createBrowserRouter)([
         path: "/",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
             fileName: "src/index.js",
-            lineNumber: 27,
+            lineNumber: 26,
             columnNumber: 21
         }, undefined),
         children: [
@@ -3010,15 +3010,23 @@ const Approuter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyDefault.default), {}, void 0, false, {
                     fileName: "src/index.js",
-                    lineNumber: 31,
+                    lineNumber: 30,
                     columnNumber: 29
+                }, undefined)
+            },
+            {
+                path: "/movie_detail/:id",
+                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchInfoDefault.default), {}, void 0, false, {
+                    fileName: "src/index.js",
+                    lineNumber: 34,
+                    columnNumber: 27
                 }, undefined)
             },
             {
                 path: "/detail/:id",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieInfoDefault.default), {}, void 0, false, {
                     fileName: "src/index.js",
-                    lineNumber: 35,
+                    lineNumber: 38,
                     columnNumber: 29
                 }, undefined)
             },
@@ -3026,7 +3034,7 @@ const Approuter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/result/:id",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _showDefault.default), {}, void 0, false, {
                     fileName: "src/index.js",
-                    lineNumber: 39,
+                    lineNumber: 42,
                     columnNumber: 29
                 }, undefined)
             }
@@ -3038,7 +3046,7 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.RouterP
     router: Approuter
 }, void 0, false, {
     fileName: "src/index.js",
-    lineNumber: 47,
+    lineNumber: 50,
     columnNumber: 15
 }, undefined));
 var _c;
@@ -3049,7 +3057,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","../public/index.css":"eob4N","react-router-dom":"9xmpe","../components/Header":"kKyxu","../components/Footer":"gIRCJ","../components/Search":"4Fzmf","../components/Show":"dlfeu","../components/Body":"iJj2X","../components/About":"hGILx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../components/MovieInfo":"eCrs1"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","../public/index.css":"eob4N","react-router-dom":"9xmpe","../components/Header":"kKyxu","../components/Footer":"gIRCJ","../components/Show":"dlfeu","../components/Body":"iJj2X","../components/About":"hGILx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../components/MovieInfo":"eCrs1","../components/SearchInfo":"gaSl9"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -34054,7 +34062,7 @@ function Header() {
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: "/",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                            className: "cursor-pointer hover:text-black  transition-all duration-300",
+                            className: "cursor-pointer hover:text-black uppercase transition-all duration-300 font-semibold",
                             children: "Home"
                         }, void 0, false, {
                             fileName: "components/Header.js",
@@ -34069,7 +34077,7 @@ function Header() {
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: "/result/popular",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                            className: "cursor-pointer  hover:text-black transition-all duration-300",
+                            className: "cursor-pointer  hover:text-black transition-all duration-300 uppercase font-semibold",
                             children: "Popular"
                         }, void 0, false, {
                             fileName: "components/Header.js",
@@ -34084,7 +34092,7 @@ function Header() {
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: "/result/top_rated",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                            className: "cursor-pointer  hover:text-black transition-all duration-300",
+                            className: "cursor-pointer  hover:text-black transition-all duration-300 uppercase font-semibold",
                             children: "Trending"
                         }, void 0, false, {
                             fileName: "components/Header.js",
@@ -34099,7 +34107,7 @@ function Header() {
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: "/result/action",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                            className: "cursor-pointer  hover:text-black transition-all duration-300",
+                            className: "cursor-pointer  hover:text-black transition-all duration-300 uppercase font-semibold",
                             children: "Action"
                         }, void 0, false, {
                             fileName: "components/Header.js",
@@ -34134,7 +34142,7 @@ function Header() {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: `/result/${search.trim()}`,
+                        to: `/movie_detail/${search.trim()}`,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                             className: " border p-2 rounded-md hover:bg-blue-950 transition-all",
                             disabled: !search.trim(),
@@ -34204,24 +34212,41 @@ function Body() {
         GetData();
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "flex gap-5 flex-wrap",
-        children: movie.map((data)=>{
-            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                to: `/detail/${data.id}`,
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _showDataDefault.default), {
-                    ...data
-                }, void 0, false, {
-                    fileName: "components/Body.js",
-                    lineNumber: 25,
-                    columnNumber: 16
-                }, this)
+        className: "",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                className: "text-center font-semibold text-4xl text-slate-300 ",
+                children: "Discover"
             }, void 0, false, {
                 fileName: "components/Body.js",
-                lineNumber: 24,
-                columnNumber: 20
-            }, this);
-        })
-    }, void 0, false, {
+                lineNumber: 22,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "flex gap-2 flex-wrap justify-center",
+                children: movie.map((data)=>{
+                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                        to: `/detail/${data.id}`,
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _showDataDefault.default), {
+                            ...data
+                        }, void 0, false, {
+                            fileName: "components/Body.js",
+                            lineNumber: 27,
+                            columnNumber: 17
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "components/Body.js",
+                        lineNumber: 26,
+                        columnNumber: 21
+                    }, this);
+                })
+            }, void 0, false, {
+                fileName: "components/Body.js",
+                lineNumber: 23,
+                columnNumber: 9
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "components/Body.js",
         lineNumber: 21,
         columnNumber: 5
@@ -34509,56 +34534,7 @@ $RefreshReg$(_c, "Footer");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4Fzmf":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$f3af = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$f3af.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>Search);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRouterDom = require("react-router-dom");
-var _s = $RefreshSig$();
-function Search(props) {
-    _s();
-    const { id } = (0, _reactRouterDom.useParams)();
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: [
-                "This is Search ",
-                id
-            ]
-        }, void 0, true, {
-            fileName: "components/Search.js",
-            lineNumber: 8,
-            columnNumber: 9
-        }, this)
-    }, void 0, false, {
-        fileName: "components/Search.js",
-        lineNumber: 7,
-        columnNumber: 5
-    }, this);
-}
-_s(Search, "r5uZNI/QgQLJ6YUN+rmQ/OIgZ/k=", false, function() {
-    return [
-        (0, _reactRouterDom.useParams)
-    ];
-});
-_c = Search;
-var _c;
-$RefreshReg$(_c, "Search");
-
-  $parcel$ReactRefreshHelpers$f3af.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dlfeu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dlfeu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$432b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34592,24 +34568,40 @@ function Show() {
         GetData();
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "flex gap-5 flex-wrap",
-        children: movie.map((data)=>{
-            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                to: `/detail/${data.id}`,
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _showDataDefault.default), {
-                    ...data
-                }, void 0, false, {
-                    fileName: "components/Show.js",
-                    lineNumber: 27,
-                    columnNumber: 13
-                }, this)
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                className: "text-center font-semibold text-4xl text-slate-300 uppercase",
+                children: id
             }, void 0, false, {
                 fileName: "components/Show.js",
-                lineNumber: 26,
-                columnNumber: 11
-            }, this);
-        })
-    }, void 0, false, {
+                lineNumber: 24,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "flex gap-5 flex-wrap justify-center",
+                children: movie?.map((data)=>{
+                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                        to: `/detail/${data.id}`,
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _showDataDefault.default), {
+                            ...data
+                        }, void 0, false, {
+                            fileName: "components/Show.js",
+                            lineNumber: 29,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "components/Show.js",
+                        lineNumber: 28,
+                        columnNumber: 11
+                    }, this);
+                })
+            }, void 0, false, {
+                fileName: "components/Show.js",
+                lineNumber: 25,
+                columnNumber: 8
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "components/Show.js",
         lineNumber: 23,
         columnNumber: 5
@@ -34692,37 +34684,203 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
+var _utils = require("../src/utils");
 var _s = $RefreshSig$();
 function MovieInfo() {
     _s();
     const { id } = (0, _reactRouterDom.useParams)();
     const [movie, setMovie] = (0, _react.useState)([]);
+    const [g, sG] = (0, _react.useState)([]);
     async function getMovieInfo() {
         const data = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`);
         const js = await data.json();
+        setMovie(js);
         console.log(js);
     }
     (0, _react.useEffect)(()=>{
         getMovieInfo();
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: [
-                "Movie Detail ",
-                id
-            ]
-        }, void 0, true, {
-            fileName: "components/MovieInfo.js",
-            lineNumber: 21,
-            columnNumber: 9
-        }, this)
-    }, void 0, false, {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "flex justify-center items-center relative w-100 h-[700px]",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                        className: "w-full h-full object-contain object-cover object-top object-center  opacity-50",
+                        src: `${(0, _utils.imageBaseUrl)}${movie.backdrop_path}`
+                    }, void 0, false, {
+                        fileName: "components/MovieInfo.js",
+                        lineNumber: 23,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "absolute flex h-full w-full justify-center items-center bg-black/70 bottom-0"
+                    }, void 0, false, {
+                        fileName: "components/MovieInfo.js",
+                        lineNumber: 27,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "w-[350px] h-[500px] absolute left-[200px] flex flex-col justify-between items-center",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            className: "w-full h-full object-contain object-cover object-top  rounded-lg shadow-sm shadow-blue-200 mr-[300px]",
+                            src: `${(0, _utils.imageBaseUrl)}${movie.backdrop_path}`
+                        }, void 0, false, {
+                            fileName: "components/MovieInfo.js",
+                            lineNumber: 30,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "components/MovieInfo.js",
+                        lineNumber: 29,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: " absolute right-[400px] top-[100]  h-[500px] w-[750px]",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "flex flex-row justify-between items-center",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                                        className: "text-3xl font-semibold",
+                                        children: movie.title
+                                    }, void 0, false, {
+                                        fileName: "components/MovieInfo.js",
+                                        lineNumber: 37,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                        className: "font-bold",
+                                        children: [
+                                            "Rating: ",
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                className: "font-sans",
+                                                children: movie.vote_average
+                                            }, void 0, false, {
+                                                fileName: "components/MovieInfo.js",
+                                                lineNumber: 39,
+                                                columnNumber: 23
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "components/MovieInfo.js",
+                                        lineNumber: 38,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "components/MovieInfo.js",
+                                lineNumber: 36,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                className: "font-semibold text-lg",
+                                children: "Tagline"
+                            }, void 0, false, {
+                                fileName: "components/MovieInfo.js",
+                                lineNumber: 42,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                className: "bg-slate-300 rounded-lg px-2 font-serif inline-block mt-5 text-black py-2",
+                                children: movie.tagline
+                            }, void 0, false, {
+                                fileName: "components/MovieInfo.js",
+                                lineNumber: 43,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                className: "mt-5 font-semibold text-lg",
+                                children: [
+                                    "Release Data: ",
+                                    movie.release_date
+                                ]
+                            }, void 0, true, {
+                                fileName: "components/MovieInfo.js",
+                                lineNumber: 46,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                                className: "font-semibold text-md mt-5 ",
+                                children: "Overview"
+                            }, void 0, false, {
+                                fileName: "components/MovieInfo.js",
+                                lineNumber: 49,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                className: "bg-slate-300 rounded-lg px-2 font-serif inline-block mt-5 text-black py-2 ",
+                                children: movie.overview
+                            }, void 0, false, {
+                                fileName: "components/MovieInfo.js",
+                                lineNumber: 50,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                className: "mt-5 font-semibold text-lg ",
+                                children: "Genres"
+                            }, void 0, false, {
+                                fileName: "components/MovieInfo.js",
+                                lineNumber: 54,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                                className: "mt-3",
+                                children: movie.genres?.map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                        className: "inline mr-5 rounded-md bg-slate-200 text-black py-1 px-2",
+                                        children: item.name
+                                    }, void 0, false, {
+                                        fileName: "components/MovieInfo.js",
+                                        lineNumber: 57,
+                                        columnNumber: 11
+                                    }, this) // Ensure each item has a unique key
+                                )
+                            }, void 0, false, {
+                                fileName: "components/MovieInfo.js",
+                                lineNumber: 55,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                href: movie.homepage,
+                                className: "font-semibold py-1  px-4 rounded-sm bg-red-500 hover:bg-red-800 transition-all duration-200 pare",
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    className: "mt-10",
+                                    children: "Visit"
+                                }, void 0, false, {
+                                    fileName: "components/MovieInfo.js",
+                                    lineNumber: 60,
+                                    columnNumber: 141
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "components/MovieInfo.js",
+                                lineNumber: 60,
+                                columnNumber: 7
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "components/MovieInfo.js",
+                        lineNumber: 35,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "components/MovieInfo.js",
+                lineNumber: 22,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
+                fileName: "components/MovieInfo.js",
+                lineNumber: 63,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "components/MovieInfo.js",
-        lineNumber: 20,
+        lineNumber: 21,
         columnNumber: 5
     }, this);
 }
-_s(MovieInfo, "Tz26B/GnJDAZWQ5hI/saVIjcoLY=", false, function() {
+_s(MovieInfo, "FPz7923z5EED7sTZcuq3iyykbTs=", false, function() {
     return [
         (0, _reactRouterDom.useParams)
     ];
@@ -34732,6 +34890,65 @@ var _c;
 $RefreshReg$(_c, "MovieInfo");
 
   $parcel$ReactRefreshHelpers$d239.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../src/utils":"en4he","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gaSl9":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$9ca0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$9ca0.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>SearchInfo);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+function SearchInfo() {
+    _s();
+    const { id } = (0, _reactRouterDom.useParams)();
+    const [mov, setMov] = (0, _react.useState)([]);
+    async function getMovieDetails() {
+        const da = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=e2c44d225d453ec302d21c442b0a785d&query=${id}`);
+        const data = await da.json();
+        setMov(data);
+    }
+    console.log(mov);
+    (0, _react.useEffect)(()=>{
+        getMovieDetails();
+    }, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+            children: [
+                "Searching results for......",
+                id
+            ]
+        }, void 0, true, {
+            fileName: "components/SearchInfo.js",
+            lineNumber: 22,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "components/SearchInfo.js",
+        lineNumber: 21,
+        columnNumber: 5
+    }, this);
+}
+_s(SearchInfo, "RQnwyVGMe+OA6Nz5a3ZR/X+BIkA=", false, function() {
+    return [
+        (0, _reactRouterDom.useParams)
+    ];
+});
+_c = SearchInfo;
+var _c;
+$RefreshReg$(_c, "SearchInfo");
+
+  $parcel$ReactRefreshHelpers$9ca0.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;

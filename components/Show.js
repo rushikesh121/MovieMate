@@ -20,14 +20,17 @@ export default function Show() {
     GetData();
   }, []);
   return (
-    <div className="flex gap-5 flex-wrap">
-      {movie.map((data) => {
+    <div>
+      <h1 className="text-center font-semibold text-4xl text-slate-300 uppercase">{id}</h1>
+       <div className="flex gap-5 flex-wrap justify-center">
+      {movie?.map((data) => {
         return (
           <Link to={`/detail/${data.id}`}>
             <ShowData {...data} />
           </Link>
         );
       })}
+    </div>
     </div>
   );
 }

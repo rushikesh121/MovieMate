@@ -4,10 +4,9 @@ import "../public/index.css";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import MovieInfo from "../components/MovieInfo"
-
+import SearchInfo from "../components/SearchInfo";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Search from "../components/Search";
 import Show from "../components/Show";
 import Body from "../components/Body";
 import About from "../components/About";
@@ -29,6 +28,10 @@ const Approuter = createBrowserRouter([
                 {
                     path:"/",
                     element:<Body/>
+                },
+                {
+                  path:"/movie_detail/:id",
+                  element:<SearchInfo/>
                 },
                 {
                     path:"/detail/:id",
