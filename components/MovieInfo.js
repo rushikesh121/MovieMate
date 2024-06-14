@@ -52,7 +52,7 @@ export default function MovieInfo() {
             {movie.overview}
           </p>
 
-          <p className="mt-5 font-semibold  ">Genres</p>
+          <p className="mt-5 font-semibold text-lg ">Genres</p>
           <ul className="mt-3">
             {movie.genres?.map((item) => (
               <li className="inline mr-5 rounded-md bg-slate-200 text-black py-1 px-2">
