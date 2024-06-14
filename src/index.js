@@ -34,6 +34,10 @@ const Approuter = createBrowserRouter([
                   element:<SearchInfo/>
                 },
                 {
+                    path:"/about",
+                    element:<About/>
+                },
+                {
                     path:"/detail/:id",
                     element:<MovieInfo/>
                 },

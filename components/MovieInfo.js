@@ -12,11 +12,12 @@ export default function MovieInfo() {
     );
     const js = await data.json();
     setMovie(js);
- console.log(js);
+    console.log(js);
   }
   useEffect(() => {
     getMovieInfo();
   }, []);
+
   return (
     <div>
       <div className="flex justify-center items-center relative w-100 h-[700px]">
@@ -53,12 +54,19 @@ export default function MovieInfo() {
 
           <p className="mt-5 font-semibold text-lg ">Genres</p>
           <ul className="mt-3">
-        {movie.genres?.map((item) => (
-          <li className="inline mr-5 rounded-md bg-slate-200 text-black py-1 px-2" >{item.name}</li> // Ensure each item has a unique key
-        ))}
-      </ul>
-      <a href={movie.homepage} className="font-semibold py-1  px-4 rounded-sm bg-red-500 hover:bg-red-800 transition-all duration-200 pare"><button className="mt-10">Visit</button></a>
-        </div> 
+            {movie.genres?.map((item) => (
+              <li className="inline mr-5 rounded-md bg-slate-200 text-black py-1 px-2">
+                {item.name}
+              </li> // Ensure each item has a unique key
+            ))}
+          </ul>
+          <a
+            href={movie.homepage}
+            className="font-semibold py-1  px-4 rounded-sm bg-red-500 hover:bg-red-800 transition-all duration-200 pare"
+          >
+            <button className="mt-10">Visit</button>
+          </a>
+        </div>
       </div>
       <div></div>
     </div>

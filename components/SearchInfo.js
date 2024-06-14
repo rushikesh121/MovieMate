@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import { useLocation } from "react-router-dom";
 export default function SearchInfo() {
   const { id } = useParams();
-  
   const [mov, setMov] = useState([]);
 
   async function getMovieDetails() {
@@ -13,7 +12,7 @@ export default function SearchInfo() {
     const data = await da.json();
     setMov(data);
   }
-  console.log(mov);
+
   useEffect(() => {
     getMovieDetails();
   }, []);
