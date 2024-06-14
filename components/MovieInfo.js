@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ShowData from "./ShowData";
 import { imageBaseUrl } from "../src/utils";
+import { Link } from "react-router-dom";
 export default function MovieInfo() {
   const { id } = useParams();
   const [movie, setMovie] = useState([]);
   const [g, sG] = useState([]);
+  const [recm,setrecm]=useState([]);
 
+  async function getRecomm()
+  {
+  const data=await fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US&page=1&api_key=963c64d17df40c0207faf121d763e23e`);
+  const d=await data.json();
+  setrecm(d.results);
+  }
   async function getMovieInfo() {
     const data = await fetch(
       `https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`
@@ -14,8 +23,11 @@ export default function MovieInfo() {
     setMovie(js);
     console.log(js);
   }
+
+
   useEffect(() => {
     getMovieInfo();
+    getRecomm();
   }, []);
 
   return (
@@ -68,7 +80,16 @@ export default function MovieInfo() {
           </a>
         </div>
       </div>
-      <div></div>
+      <h1 className="text-3xl font-semibold text-start mt-5 ml-10">You May Also Like...</h1>
+      <div className="flex gap-2 flex-wrap justify-center">
+        {recm.map((data) => {
+          return (
+            <Link to={`/detail/${data.id}`}>
+              <ShowData {...data} />
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -15,7 +15,7 @@ export default function Show() {
     );
     const da = await data.json();
     setMovie(da.results);
-    console.log(da);
+
   }
  
   useEffect(() => {

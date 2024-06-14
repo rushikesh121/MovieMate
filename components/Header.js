@@ -7,8 +7,8 @@ export default function Header() {
   const [search,setSearch]=useState("");
   return (
     <div className=" text-white flex justify-between  items-center shadow-md shad shadow-black px-[40px] h-[80px] rounded-md w-ful sticky top-0 z-50 bg-opacity-80 backdrop-blur-lg ">
-      <h1 className=" relative uppercase text-md font-serif opacity-80">moviemate 
-      </h1>
+     <a href="/"> <h1 className=" relative uppercase text-md font-serif opacity-80">moviemate 
+      </h1></a>
       <ul className="flex flex-row gap-7">
         <Link to="/">
           <li className="cursor-pointer hover:text-black uppercase transition-all duration-300 font-semibold">

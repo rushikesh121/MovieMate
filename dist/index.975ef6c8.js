@@ -34045,6 +34045,8 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
+var _showData = require("./ShowData");
+var _showDataDefault = parcelHelpers.interopDefault(_showData);
 var _utils = require("../src/utils");
 var _s = $RefreshSig$();
 function MovieInfo() {
@@ -34052,6 +34054,12 @@ function MovieInfo() {
     const { id } = (0, _reactRouterDom.useParams)();
     const [movie, setMovie] = (0, _react.useState)([]);
     const [g, sG] = (0, _react.useState)([]);
+    const [recm, setrecm] = (0, _react.useState)([]);
+    async function getRecomm() {
+        const data = await fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US&page=1&api_key=963c64d17df40c0207faf121d763e23e`);
+        const d = await data.json();
+        setrecm(d.results);
+    }
     async function getMovieInfo() {
         const data = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`);
         const js = await data.json();
@@ -34060,6 +34068,7 @@ function MovieInfo() {
     }
     (0, _react.useEffect)(()=>{
         getMovieInfo();
+        getRecomm();
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
@@ -34071,14 +34080,14 @@ function MovieInfo() {
                         src: `${(0, _utils.imageBaseUrl)}${movie.backdrop_path}`
                     }, void 0, false, {
                         fileName: "components/MovieInfo.js",
-                        lineNumber: 24,
+                        lineNumber: 36,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "absolute flex h-full w-full justify-center items-center bg-black/70 bottom-0"
                     }, void 0, false, {
                         fileName: "components/MovieInfo.js",
-                        lineNumber: 28,
+                        lineNumber: 40,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34088,12 +34097,12 @@ function MovieInfo() {
                             src: `${(0, _utils.imageBaseUrl)}${movie.backdrop_path}`
                         }, void 0, false, {
                             fileName: "components/MovieInfo.js",
-                            lineNumber: 31,
+                            lineNumber: 43,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "components/MovieInfo.js",
-                        lineNumber: 30,
+                        lineNumber: 42,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34107,7 +34116,7 @@ function MovieInfo() {
                                         children: movie.title
                                     }, void 0, false, {
                                         fileName: "components/MovieInfo.js",
-                                        lineNumber: 38,
+                                        lineNumber: 50,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -34119,19 +34128,19 @@ function MovieInfo() {
                                                 children: movie.vote_average
                                             }, void 0, false, {
                                                 fileName: "components/MovieInfo.js",
-                                                lineNumber: 40,
+                                                lineNumber: 52,
                                                 columnNumber: 23
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "components/MovieInfo.js",
-                                        lineNumber: 39,
+                                        lineNumber: 51,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "components/MovieInfo.js",
-                                lineNumber: 37,
+                                lineNumber: 49,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -34139,7 +34148,7 @@ function MovieInfo() {
                                 children: "Tagline"
                             }, void 0, false, {
                                 fileName: "components/MovieInfo.js",
-                                lineNumber: 43,
+                                lineNumber: 55,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -34147,7 +34156,7 @@ function MovieInfo() {
                                 children: movie.tagline
                             }, void 0, false, {
                                 fileName: "components/MovieInfo.js",
-                                lineNumber: 44,
+                                lineNumber: 56,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -34158,7 +34167,7 @@ function MovieInfo() {
                                 ]
                             }, void 0, true, {
                                 fileName: "components/MovieInfo.js",
-                                lineNumber: 47,
+                                lineNumber: 59,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -34166,7 +34175,7 @@ function MovieInfo() {
                                 children: "Overview"
                             }, void 0, false, {
                                 fileName: "components/MovieInfo.js",
-                                lineNumber: 50,
+                                lineNumber: 62,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -34174,7 +34183,7 @@ function MovieInfo() {
                                 children: movie.overview
                             }, void 0, false, {
                                 fileName: "components/MovieInfo.js",
-                                lineNumber: 51,
+                                lineNumber: 63,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -34182,7 +34191,7 @@ function MovieInfo() {
                                 children: "Genres"
                             }, void 0, false, {
                                 fileName: "components/MovieInfo.js",
-                                lineNumber: 55,
+                                lineNumber: 67,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -34192,13 +34201,13 @@ function MovieInfo() {
                                         children: item.name
                                     }, void 0, false, {
                                         fileName: "components/MovieInfo.js",
-                                        lineNumber: 58,
+                                        lineNumber: 70,
                                         columnNumber: 15
                                     }, this) // Ensure each item has a unique key
                                 )
                             }, void 0, false, {
                                 fileName: "components/MovieInfo.js",
-                                lineNumber: 56,
+                                lineNumber: 68,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
@@ -34209,39 +34218,65 @@ function MovieInfo() {
                                     children: "Visit"
                                 }, void 0, false, {
                                     fileName: "components/MovieInfo.js",
-                                    lineNumber: 67,
+                                    lineNumber: 79,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "components/MovieInfo.js",
-                                lineNumber: 63,
+                                lineNumber: 75,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "components/MovieInfo.js",
-                        lineNumber: 36,
+                        lineNumber: 48,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "components/MovieInfo.js",
-                lineNumber: 23,
+                lineNumber: 35,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                className: "text-3xl font-semibold text-start mt-5 ml-10",
+                children: "You May Also Like..."
+            }, void 0, false, {
                 fileName: "components/MovieInfo.js",
-                lineNumber: 71,
+                lineNumber: 83,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "flex gap-2 flex-wrap justify-center",
+                children: recm.map((data)=>{
+                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                        to: `/detail/${data.id}`,
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _showDataDefault.default), {
+                            ...data
+                        }, void 0, false, {
+                            fileName: "components/MovieInfo.js",
+                            lineNumber: 88,
+                            columnNumber: 15
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "components/MovieInfo.js",
+                        lineNumber: 87,
+                        columnNumber: 13
+                    }, this);
+                })
+            }, void 0, false, {
+                fileName: "components/MovieInfo.js",
+                lineNumber: 84,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "components/MovieInfo.js",
-        lineNumber: 22,
+        lineNumber: 34,
         columnNumber: 5
     }, this);
 }
-_s(MovieInfo, "FPz7923z5EED7sTZcuq3iyykbTs=", false, function() {
+_s(MovieInfo, "3vuK9ETgVGOpvlZY0fMCz6XPkoQ=", false, function() {
     return [
         (0, _reactRouterDom.useParams)
     ];
@@ -34255,7 +34290,7 @@ $RefreshReg$(_c, "MovieInfo");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../src/utils":"en4he","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"en4he":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../src/utils":"en4he","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./ShowData":"fRQyX"}],"en4he":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "KEY", ()=>KEY);
@@ -34403,7 +34438,94 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"7422ead32dcc1e6b":"786KC"}],"gaSl9":[function(require,module,exports) {
+},{"7422ead32dcc1e6b":"786KC"}],"fRQyX":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$cff9 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$cff9.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>ShowData);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _utils = require("../src/utils");
+function ShowData({ id, backdrop_path, title, poster_path, vote_average }) {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "flex flex-row mx-11 mt-11 flex-wrap group",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "w-[270px] h-[380px] rounded-lg flex cursor-pointer overflow-hidden shadow-lg shadow-black relative justify-center align-middle",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    className: "w-full h-full  object-cover object-fill group-hover:opacity-35  opacity-80 transition-all duration-300 ",
+                    src: `${(0, _utils.imageBaseUrl)}${poster_path}`
+                }, void 0, false, {
+                    fileName: "components/ShowData.js",
+                    lineNumber: 13,
+                    columnNumber: 13
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "absolute h-full w-full flex items-center justify-center  -bottom-80 group-hover:bottom-0 flex-col transition-all duration-300  ",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "uppercase items-center text-xl font-semibold mb-2",
+                            children: title
+                        }, void 0, false, {
+                            fileName: "components/ShowData.js",
+                            lineNumber: 16,
+                            columnNumber: 15
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "uppercase text-sm font-serif ",
+                            children: [
+                                " Rating: ",
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                    className: "bg-white text-black px-1  py-1 rounded-md",
+                                    children: [
+                                        " ",
+                                        vote_average.toFixed(1)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "components/ShowData.js",
+                                    lineNumber: 17,
+                                    columnNumber: 69
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "components/ShowData.js",
+                            lineNumber: 17,
+                            columnNumber: 15
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "components/ShowData.js",
+                    lineNumber: 15,
+                    columnNumber: 13
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "components/ShowData.js",
+            lineNumber: 12,
+            columnNumber: 9
+        }, this)
+    }, void 0, false, {
+        fileName: "components/ShowData.js",
+        lineNumber: 11,
+        columnNumber: 5
+    }, this);
+}
+_c = ShowData;
+var _c;
+$RefreshReg$(_c, "ShowData");
+
+  $parcel$ReactRefreshHelpers$cff9.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../src/utils":"en4he","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gaSl9":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9ca0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34461,7 +34583,7 @@ $RefreshReg$(_c, "SearchInfo");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../src/utils":"en4he"}],"kKyxu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kKyxu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$fc8e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34486,13 +34608,23 @@ function Header() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: " text-white flex justify-between  items-center shadow-md shad shadow-black px-[40px] h-[80px] rounded-md w-ful sticky top-0 z-50 bg-opacity-80 backdrop-blur-lg ",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                className: " relative uppercase text-md font-serif opacity-80",
-                children: "moviemate"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                href: "/",
+                children: [
+                    " ",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                        className: " relative uppercase text-md font-serif opacity-80",
+                        children: "moviemate"
+                    }, void 0, false, {
+                        fileName: "components/Header.js",
+                        lineNumber: 10,
+                        columnNumber: 19
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "components/Header.js",
                 lineNumber: 10,
-                columnNumber: 7
+                columnNumber: 6
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
                 className: "flex flex-row gap-7",
@@ -34650,12 +34782,6 @@ function Body() {
     (0, _react.useEffect)(()=>{
         GetData();
     }, []);
-    (0, _react.useEffect)(()=>{
-        // Your effect code here
-        console.log("Route changed:", location.pathname);
-    }, [
-        location
-    ]);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "",
         children: [
@@ -34664,7 +34790,7 @@ function Body() {
                 children: "Discover"
             }, void 0, false, {
                 fileName: "components/Body.js",
-                lineNumber: 29,
+                lineNumber: 23,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34676,28 +34802,28 @@ function Body() {
                             ...data
                         }, void 0, false, {
                             fileName: "components/Body.js",
-                            lineNumber: 34,
-                            columnNumber: 17
+                            lineNumber: 30,
+                            columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "components/Body.js",
-                        lineNumber: 33,
-                        columnNumber: 21
+                        lineNumber: 29,
+                        columnNumber: 13
                     }, this);
                 })
             }, void 0, false, {
                 fileName: "components/Body.js",
-                lineNumber: 30,
-                columnNumber: 9
+                lineNumber: 26,
+                columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "components/Body.js",
-        lineNumber: 28,
+        lineNumber: 22,
         columnNumber: 5
     }, this);
 }
-_s(Body, "eyMEU+kWB6LyhNb1hWzI0yZkXR8=", false, function() {
+_s(Body, "q/kEcNfkgZGknBt2cghfOWy/CuI=", false, function() {
     return [
         (0, _reactRouterDom.useLocation)
     ];
@@ -34711,94 +34837,7 @@ $RefreshReg$(_c, "Body");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../src/utils":"en4he","./ShowData":"fRQyX","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"fRQyX":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$cff9 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$cff9.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>ShowData);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _utils = require("../src/utils");
-function ShowData({ id, backdrop_path, title, poster_path, vote_average }) {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "flex flex-row mx-11 mt-11 flex-wrap group",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "w-[270px] h-[380px] rounded-lg flex cursor-pointer overflow-hidden shadow-lg shadow-black relative justify-center align-middle",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    className: "w-full h-full  object-cover object-fill group-hover:opacity-35  opacity-80 transition-all duration-300 ",
-                    src: `${(0, _utils.imageBaseUrl)}${poster_path}`
-                }, void 0, false, {
-                    fileName: "components/ShowData.js",
-                    lineNumber: 13,
-                    columnNumber: 13
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "absolute h-full w-full flex items-center justify-center  -bottom-80 group-hover:bottom-0 flex-col transition-all duration-300  ",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            className: "uppercase items-center text-xl font-semibold mb-2",
-                            children: title
-                        }, void 0, false, {
-                            fileName: "components/ShowData.js",
-                            lineNumber: 16,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            className: "uppercase text-sm font-serif ",
-                            children: [
-                                " Rating: ",
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                    className: "bg-white text-black px-1  py-1 rounded-md",
-                                    children: [
-                                        " ",
-                                        vote_average.toFixed(1)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "components/ShowData.js",
-                                    lineNumber: 17,
-                                    columnNumber: 69
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "components/ShowData.js",
-                            lineNumber: 17,
-                            columnNumber: 15
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "components/ShowData.js",
-                    lineNumber: 15,
-                    columnNumber: 13
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "components/ShowData.js",
-            lineNumber: 12,
-            columnNumber: 9
-        }, this)
-    }, void 0, false, {
-        fileName: "components/ShowData.js",
-        lineNumber: 11,
-        columnNumber: 5
-    }, this);
-}
-_c = ShowData;
-var _c;
-$RefreshReg$(_c, "ShowData");
-
-  $parcel$ReactRefreshHelpers$cff9.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../src/utils":"en4he","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gIRCJ":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../src/utils":"en4he","./ShowData":"fRQyX","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gIRCJ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$c55a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34813,13 +34852,7 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 function Footer() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "This is Footer"
-        }, void 0, false, {
-            fileName: "components/Footer.js",
-            lineNumber: 6,
-            columnNumber: 9
-        }, this)
+        className: ""
     }, void 0, false, {
         fileName: "components/Footer.js",
         lineNumber: 5,
@@ -34863,7 +34896,6 @@ function Show() {
         const data = await fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US&page=1&api_key=e2c44d225d453ec302d21c442b0a785d`);
         const da = await data.json();
         setMovie(da.results);
-        console.log(da);
     }
     (0, _react.useEffect)(()=>{
         GetData();
@@ -34938,30 +34970,5864 @@ parcelHelpers.export(exports, "default", ()=>About);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-function About() {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "About US Page "
+var _outline = require("@heroicons/react/outline");
+const GitHubIcon = ()=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        className: "h-12 w-12",
+        viewBox: "0 0 24 24",
+        fill: "currentColor",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+            d: "M12 2C6.48 2 2 6.48 2 12c0 4.41 2.87 8.17 6.84 9.49.5.09.68-.21.68-.47v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.88 1.52 2.32 1.08 2.88.83.09-.64.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.28.1-2.67 0 0 .84-.27 2.75 1.02A9.563 9.563 0 0112 6.84c.85.003 1.7.115 2.5.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.39.2 2.42.1 2.67.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.75c0 .26.18.56.68.47C19.13 20.17 22 16.41 22 12c0-5.52-4.48-10-10-10z"
         }, void 0, false, {
             fileName: "components/About.js",
-            lineNumber: 6,
-            columnNumber: 7
-        }, this)
+            lineNumber: 13,
+            columnNumber: 5
+        }, undefined)
     }, void 0, false, {
         fileName: "components/About.js",
-        lineNumber: 5,
+        lineNumber: 7,
+        columnNumber: 3
+    }, undefined);
+_c = GitHubIcon;
+function About() {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "flex items-center flex-col justify-center min-h-screen ",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                className: "uppercase font-semibold",
+                children: "Rushikesh Raut"
+            }, void 0, false, {
+                fileName: "components/About.js",
+                lineNumber: 20,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                href: "https://github.com/rushikesh121",
+                className: "text-white transition-all duration-200 hover:text-black ",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(GitHubIcon, {}, void 0, false, {
+                    fileName: "components/About.js",
+                    lineNumber: 22,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "components/About.js",
+                lineNumber: 21,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "components/About.js",
+        lineNumber: 19,
         columnNumber: 5
     }, this);
 }
-_c = About;
-var _c;
-$RefreshReg$(_c, "About");
+_c1 = About;
+var _c, _c1;
+$RefreshReg$(_c, "GitHubIcon");
+$RefreshReg$(_c1, "About");
 
   $parcel$ReactRefreshHelpers$266e.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["farZc","1xC6H","8lqZg"], "8lqZg", "parcelRequire7890")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","@heroicons/react/outline":"eJqvN"}],"eJqvN":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "AcademicCapIcon", ()=>(0, _academicCapIconJsDefault.default));
+parcelHelpers.export(exports, "AdjustmentsIcon", ()=>(0, _adjustmentsIconJsDefault.default));
+parcelHelpers.export(exports, "AnnotationIcon", ()=>(0, _annotationIconJsDefault.default));
+parcelHelpers.export(exports, "ArchiveIcon", ()=>(0, _archiveIconJsDefault.default));
+parcelHelpers.export(exports, "ArrowCircleDownIcon", ()=>(0, _arrowCircleDownIconJsDefault.default));
+parcelHelpers.export(exports, "ArrowCircleLeftIcon", ()=>(0, _arrowCircleLeftIconJsDefault.default));
+parcelHelpers.export(exports, "ArrowCircleRightIcon", ()=>(0, _arrowCircleRightIconJsDefault.default));
+parcelHelpers.export(exports, "ArrowCircleUpIcon", ()=>(0, _arrowCircleUpIconJsDefault.default));
+parcelHelpers.export(exports, "ArrowDownIcon", ()=>(0, _arrowDownIconJsDefault.default));
+parcelHelpers.export(exports, "ArrowLeftIcon", ()=>(0, _arrowLeftIconJsDefault.default));
+parcelHelpers.export(exports, "ArrowNarrowDownIcon", ()=>(0, _arrowNarrowDownIconJsDefault.default));
+parcelHelpers.export(exports, "ArrowNarrowLeftIcon", ()=>(0, _arrowNarrowLeftIconJsDefault.default));
+parcelHelpers.export(exports, "ArrowNarrowRightIcon", ()=>(0, _arrowNarrowRightIconJsDefault.default));
+parcelHelpers.export(exports, "ArrowNarrowUpIcon", ()=>(0, _arrowNarrowUpIconJsDefault.default));
+parcelHelpers.export(exports, "ArrowRightIcon", ()=>(0, _arrowRightIconJsDefault.default));
+parcelHelpers.export(exports, "ArrowSmDownIcon", ()=>(0, _arrowSmDownIconJsDefault.default));
+parcelHelpers.export(exports, "ArrowSmLeftIcon", ()=>(0, _arrowSmLeftIconJsDefault.default));
+parcelHelpers.export(exports, "ArrowSmRightIcon", ()=>(0, _arrowSmRightIconJsDefault.default));
+parcelHelpers.export(exports, "ArrowSmUpIcon", ()=>(0, _arrowSmUpIconJsDefault.default));
+parcelHelpers.export(exports, "ArrowUpIcon", ()=>(0, _arrowUpIconJsDefault.default));
+parcelHelpers.export(exports, "ArrowsExpandIcon", ()=>(0, _arrowsExpandIconJsDefault.default));
+parcelHelpers.export(exports, "AtSymbolIcon", ()=>(0, _atSymbolIconJsDefault.default));
+parcelHelpers.export(exports, "BackspaceIcon", ()=>(0, _backspaceIconJsDefault.default));
+parcelHelpers.export(exports, "BadgeCheckIcon", ()=>(0, _badgeCheckIconJsDefault.default));
+parcelHelpers.export(exports, "BanIcon", ()=>(0, _banIconJsDefault.default));
+parcelHelpers.export(exports, "BeakerIcon", ()=>(0, _beakerIconJsDefault.default));
+parcelHelpers.export(exports, "BellIcon", ()=>(0, _bellIconJsDefault.default));
+parcelHelpers.export(exports, "BookOpenIcon", ()=>(0, _bookOpenIconJsDefault.default));
+parcelHelpers.export(exports, "BookmarkAltIcon", ()=>(0, _bookmarkAltIconJsDefault.default));
+parcelHelpers.export(exports, "BookmarkIcon", ()=>(0, _bookmarkIconJsDefault.default));
+parcelHelpers.export(exports, "BriefcaseIcon", ()=>(0, _briefcaseIconJsDefault.default));
+parcelHelpers.export(exports, "CakeIcon", ()=>(0, _cakeIconJsDefault.default));
+parcelHelpers.export(exports, "CalculatorIcon", ()=>(0, _calculatorIconJsDefault.default));
+parcelHelpers.export(exports, "CalendarIcon", ()=>(0, _calendarIconJsDefault.default));
+parcelHelpers.export(exports, "CameraIcon", ()=>(0, _cameraIconJsDefault.default));
+parcelHelpers.export(exports, "CashIcon", ()=>(0, _cashIconJsDefault.default));
+parcelHelpers.export(exports, "ChartBarIcon", ()=>(0, _chartBarIconJsDefault.default));
+parcelHelpers.export(exports, "ChartPieIcon", ()=>(0, _chartPieIconJsDefault.default));
+parcelHelpers.export(exports, "ChartSquareBarIcon", ()=>(0, _chartSquareBarIconJsDefault.default));
+parcelHelpers.export(exports, "ChatAlt2Icon", ()=>(0, _chatAlt2IconJsDefault.default));
+parcelHelpers.export(exports, "ChatAltIcon", ()=>(0, _chatAltIconJsDefault.default));
+parcelHelpers.export(exports, "ChatIcon", ()=>(0, _chatIconJsDefault.default));
+parcelHelpers.export(exports, "CheckCircleIcon", ()=>(0, _checkCircleIconJsDefault.default));
+parcelHelpers.export(exports, "CheckIcon", ()=>(0, _checkIconJsDefault.default));
+parcelHelpers.export(exports, "ChevronDoubleDownIcon", ()=>(0, _chevronDoubleDownIconJsDefault.default));
+parcelHelpers.export(exports, "ChevronDoubleLeftIcon", ()=>(0, _chevronDoubleLeftIconJsDefault.default));
+parcelHelpers.export(exports, "ChevronDoubleRightIcon", ()=>(0, _chevronDoubleRightIconJsDefault.default));
+parcelHelpers.export(exports, "ChevronDoubleUpIcon", ()=>(0, _chevronDoubleUpIconJsDefault.default));
+parcelHelpers.export(exports, "ChevronDownIcon", ()=>(0, _chevronDownIconJsDefault.default));
+parcelHelpers.export(exports, "ChevronLeftIcon", ()=>(0, _chevronLeftIconJsDefault.default));
+parcelHelpers.export(exports, "ChevronRightIcon", ()=>(0, _chevronRightIconJsDefault.default));
+parcelHelpers.export(exports, "ChevronUpIcon", ()=>(0, _chevronUpIconJsDefault.default));
+parcelHelpers.export(exports, "ChipIcon", ()=>(0, _chipIconJsDefault.default));
+parcelHelpers.export(exports, "ClipboardCheckIcon", ()=>(0, _clipboardCheckIconJsDefault.default));
+parcelHelpers.export(exports, "ClipboardCopyIcon", ()=>(0, _clipboardCopyIconJsDefault.default));
+parcelHelpers.export(exports, "ClipboardListIcon", ()=>(0, _clipboardListIconJsDefault.default));
+parcelHelpers.export(exports, "ClipboardIcon", ()=>(0, _clipboardIconJsDefault.default));
+parcelHelpers.export(exports, "ClockIcon", ()=>(0, _clockIconJsDefault.default));
+parcelHelpers.export(exports, "CloudDownloadIcon", ()=>(0, _cloudDownloadIconJsDefault.default));
+parcelHelpers.export(exports, "CloudUploadIcon", ()=>(0, _cloudUploadIconJsDefault.default));
+parcelHelpers.export(exports, "CloudIcon", ()=>(0, _cloudIconJsDefault.default));
+parcelHelpers.export(exports, "CodeIcon", ()=>(0, _codeIconJsDefault.default));
+parcelHelpers.export(exports, "CogIcon", ()=>(0, _cogIconJsDefault.default));
+parcelHelpers.export(exports, "CollectionIcon", ()=>(0, _collectionIconJsDefault.default));
+parcelHelpers.export(exports, "ColorSwatchIcon", ()=>(0, _colorSwatchIconJsDefault.default));
+parcelHelpers.export(exports, "CreditCardIcon", ()=>(0, _creditCardIconJsDefault.default));
+parcelHelpers.export(exports, "CubeTransparentIcon", ()=>(0, _cubeTransparentIconJsDefault.default));
+parcelHelpers.export(exports, "CubeIcon", ()=>(0, _cubeIconJsDefault.default));
+parcelHelpers.export(exports, "CurrencyBangladeshiIcon", ()=>(0, _currencyBangladeshiIconJsDefault.default));
+parcelHelpers.export(exports, "CurrencyDollarIcon", ()=>(0, _currencyDollarIconJsDefault.default));
+parcelHelpers.export(exports, "CurrencyEuroIcon", ()=>(0, _currencyEuroIconJsDefault.default));
+parcelHelpers.export(exports, "CurrencyPoundIcon", ()=>(0, _currencyPoundIconJsDefault.default));
+parcelHelpers.export(exports, "CurrencyRupeeIcon", ()=>(0, _currencyRupeeIconJsDefault.default));
+parcelHelpers.export(exports, "CurrencyYenIcon", ()=>(0, _currencyYenIconJsDefault.default));
+parcelHelpers.export(exports, "CursorClickIcon", ()=>(0, _cursorClickIconJsDefault.default));
+parcelHelpers.export(exports, "DatabaseIcon", ()=>(0, _databaseIconJsDefault.default));
+parcelHelpers.export(exports, "DesktopComputerIcon", ()=>(0, _desktopComputerIconJsDefault.default));
+parcelHelpers.export(exports, "DeviceMobileIcon", ()=>(0, _deviceMobileIconJsDefault.default));
+parcelHelpers.export(exports, "DeviceTabletIcon", ()=>(0, _deviceTabletIconJsDefault.default));
+parcelHelpers.export(exports, "DocumentAddIcon", ()=>(0, _documentAddIconJsDefault.default));
+parcelHelpers.export(exports, "DocumentDownloadIcon", ()=>(0, _documentDownloadIconJsDefault.default));
+parcelHelpers.export(exports, "DocumentDuplicateIcon", ()=>(0, _documentDuplicateIconJsDefault.default));
+parcelHelpers.export(exports, "DocumentRemoveIcon", ()=>(0, _documentRemoveIconJsDefault.default));
+parcelHelpers.export(exports, "DocumentReportIcon", ()=>(0, _documentReportIconJsDefault.default));
+parcelHelpers.export(exports, "DocumentSearchIcon", ()=>(0, _documentSearchIconJsDefault.default));
+parcelHelpers.export(exports, "DocumentTextIcon", ()=>(0, _documentTextIconJsDefault.default));
+parcelHelpers.export(exports, "DocumentIcon", ()=>(0, _documentIconJsDefault.default));
+parcelHelpers.export(exports, "DotsCircleHorizontalIcon", ()=>(0, _dotsCircleHorizontalIconJsDefault.default));
+parcelHelpers.export(exports, "DotsHorizontalIcon", ()=>(0, _dotsHorizontalIconJsDefault.default));
+parcelHelpers.export(exports, "DotsVerticalIcon", ()=>(0, _dotsVerticalIconJsDefault.default));
+parcelHelpers.export(exports, "DownloadIcon", ()=>(0, _downloadIconJsDefault.default));
+parcelHelpers.export(exports, "DuplicateIcon", ()=>(0, _duplicateIconJsDefault.default));
+parcelHelpers.export(exports, "EmojiHappyIcon", ()=>(0, _emojiHappyIconJsDefault.default));
+parcelHelpers.export(exports, "EmojiSadIcon", ()=>(0, _emojiSadIconJsDefault.default));
+parcelHelpers.export(exports, "ExclamationCircleIcon", ()=>(0, _exclamationCircleIconJsDefault.default));
+parcelHelpers.export(exports, "ExclamationIcon", ()=>(0, _exclamationIconJsDefault.default));
+parcelHelpers.export(exports, "ExternalLinkIcon", ()=>(0, _externalLinkIconJsDefault.default));
+parcelHelpers.export(exports, "EyeOffIcon", ()=>(0, _eyeOffIconJsDefault.default));
+parcelHelpers.export(exports, "EyeIcon", ()=>(0, _eyeIconJsDefault.default));
+parcelHelpers.export(exports, "FastForwardIcon", ()=>(0, _fastForwardIconJsDefault.default));
+parcelHelpers.export(exports, "FilmIcon", ()=>(0, _filmIconJsDefault.default));
+parcelHelpers.export(exports, "FilterIcon", ()=>(0, _filterIconJsDefault.default));
+parcelHelpers.export(exports, "FingerPrintIcon", ()=>(0, _fingerPrintIconJsDefault.default));
+parcelHelpers.export(exports, "FireIcon", ()=>(0, _fireIconJsDefault.default));
+parcelHelpers.export(exports, "FlagIcon", ()=>(0, _flagIconJsDefault.default));
+parcelHelpers.export(exports, "FolderAddIcon", ()=>(0, _folderAddIconJsDefault.default));
+parcelHelpers.export(exports, "FolderDownloadIcon", ()=>(0, _folderDownloadIconJsDefault.default));
+parcelHelpers.export(exports, "FolderOpenIcon", ()=>(0, _folderOpenIconJsDefault.default));
+parcelHelpers.export(exports, "FolderRemoveIcon", ()=>(0, _folderRemoveIconJsDefault.default));
+parcelHelpers.export(exports, "FolderIcon", ()=>(0, _folderIconJsDefault.default));
+parcelHelpers.export(exports, "GiftIcon", ()=>(0, _giftIconJsDefault.default));
+parcelHelpers.export(exports, "GlobeAltIcon", ()=>(0, _globeAltIconJsDefault.default));
+parcelHelpers.export(exports, "GlobeIcon", ()=>(0, _globeIconJsDefault.default));
+parcelHelpers.export(exports, "HandIcon", ()=>(0, _handIconJsDefault.default));
+parcelHelpers.export(exports, "HashtagIcon", ()=>(0, _hashtagIconJsDefault.default));
+parcelHelpers.export(exports, "HeartIcon", ()=>(0, _heartIconJsDefault.default));
+parcelHelpers.export(exports, "HomeIcon", ()=>(0, _homeIconJsDefault.default));
+parcelHelpers.export(exports, "IdentificationIcon", ()=>(0, _identificationIconJsDefault.default));
+parcelHelpers.export(exports, "InboxInIcon", ()=>(0, _inboxInIconJsDefault.default));
+parcelHelpers.export(exports, "InboxIcon", ()=>(0, _inboxIconJsDefault.default));
+parcelHelpers.export(exports, "InformationCircleIcon", ()=>(0, _informationCircleIconJsDefault.default));
+parcelHelpers.export(exports, "KeyIcon", ()=>(0, _keyIconJsDefault.default));
+parcelHelpers.export(exports, "LibraryIcon", ()=>(0, _libraryIconJsDefault.default));
+parcelHelpers.export(exports, "LightBulbIcon", ()=>(0, _lightBulbIconJsDefault.default));
+parcelHelpers.export(exports, "LightningBoltIcon", ()=>(0, _lightningBoltIconJsDefault.default));
+parcelHelpers.export(exports, "LinkIcon", ()=>(0, _linkIconJsDefault.default));
+parcelHelpers.export(exports, "LocationMarkerIcon", ()=>(0, _locationMarkerIconJsDefault.default));
+parcelHelpers.export(exports, "LockClosedIcon", ()=>(0, _lockClosedIconJsDefault.default));
+parcelHelpers.export(exports, "LockOpenIcon", ()=>(0, _lockOpenIconJsDefault.default));
+parcelHelpers.export(exports, "LoginIcon", ()=>(0, _loginIconJsDefault.default));
+parcelHelpers.export(exports, "LogoutIcon", ()=>(0, _logoutIconJsDefault.default));
+parcelHelpers.export(exports, "MailOpenIcon", ()=>(0, _mailOpenIconJsDefault.default));
+parcelHelpers.export(exports, "MailIcon", ()=>(0, _mailIconJsDefault.default));
+parcelHelpers.export(exports, "MapIcon", ()=>(0, _mapIconJsDefault.default));
+parcelHelpers.export(exports, "MenuAlt1Icon", ()=>(0, _menuAlt1IconJsDefault.default));
+parcelHelpers.export(exports, "MenuAlt2Icon", ()=>(0, _menuAlt2IconJsDefault.default));
+parcelHelpers.export(exports, "MenuAlt3Icon", ()=>(0, _menuAlt3IconJsDefault.default));
+parcelHelpers.export(exports, "MenuAlt4Icon", ()=>(0, _menuAlt4IconJsDefault.default));
+parcelHelpers.export(exports, "MenuIcon", ()=>(0, _menuIconJsDefault.default));
+parcelHelpers.export(exports, "MicrophoneIcon", ()=>(0, _microphoneIconJsDefault.default));
+parcelHelpers.export(exports, "MinusCircleIcon", ()=>(0, _minusCircleIconJsDefault.default));
+parcelHelpers.export(exports, "MinusSmIcon", ()=>(0, _minusSmIconJsDefault.default));
+parcelHelpers.export(exports, "MinusIcon", ()=>(0, _minusIconJsDefault.default));
+parcelHelpers.export(exports, "MoonIcon", ()=>(0, _moonIconJsDefault.default));
+parcelHelpers.export(exports, "MusicNoteIcon", ()=>(0, _musicNoteIconJsDefault.default));
+parcelHelpers.export(exports, "NewspaperIcon", ()=>(0, _newspaperIconJsDefault.default));
+parcelHelpers.export(exports, "OfficeBuildingIcon", ()=>(0, _officeBuildingIconJsDefault.default));
+parcelHelpers.export(exports, "PaperAirplaneIcon", ()=>(0, _paperAirplaneIconJsDefault.default));
+parcelHelpers.export(exports, "PaperClipIcon", ()=>(0, _paperClipIconJsDefault.default));
+parcelHelpers.export(exports, "PauseIcon", ()=>(0, _pauseIconJsDefault.default));
+parcelHelpers.export(exports, "PencilAltIcon", ()=>(0, _pencilAltIconJsDefault.default));
+parcelHelpers.export(exports, "PencilIcon", ()=>(0, _pencilIconJsDefault.default));
+parcelHelpers.export(exports, "PhoneIncomingIcon", ()=>(0, _phoneIncomingIconJsDefault.default));
+parcelHelpers.export(exports, "PhoneMissedCallIcon", ()=>(0, _phoneMissedCallIconJsDefault.default));
+parcelHelpers.export(exports, "PhoneOutgoingIcon", ()=>(0, _phoneOutgoingIconJsDefault.default));
+parcelHelpers.export(exports, "PhoneIcon", ()=>(0, _phoneIconJsDefault.default));
+parcelHelpers.export(exports, "PhotographIcon", ()=>(0, _photographIconJsDefault.default));
+parcelHelpers.export(exports, "PlayIcon", ()=>(0, _playIconJsDefault.default));
+parcelHelpers.export(exports, "PlusCircleIcon", ()=>(0, _plusCircleIconJsDefault.default));
+parcelHelpers.export(exports, "PlusSmIcon", ()=>(0, _plusSmIconJsDefault.default));
+parcelHelpers.export(exports, "PlusIcon", ()=>(0, _plusIconJsDefault.default));
+parcelHelpers.export(exports, "PresentationChartBarIcon", ()=>(0, _presentationChartBarIconJsDefault.default));
+parcelHelpers.export(exports, "PresentationChartLineIcon", ()=>(0, _presentationChartLineIconJsDefault.default));
+parcelHelpers.export(exports, "PrinterIcon", ()=>(0, _printerIconJsDefault.default));
+parcelHelpers.export(exports, "PuzzleIcon", ()=>(0, _puzzleIconJsDefault.default));
+parcelHelpers.export(exports, "QrcodeIcon", ()=>(0, _qrcodeIconJsDefault.default));
+parcelHelpers.export(exports, "QuestionMarkCircleIcon", ()=>(0, _questionMarkCircleIconJsDefault.default));
+parcelHelpers.export(exports, "ReceiptRefundIcon", ()=>(0, _receiptRefundIconJsDefault.default));
+parcelHelpers.export(exports, "ReceiptTaxIcon", ()=>(0, _receiptTaxIconJsDefault.default));
+parcelHelpers.export(exports, "RefreshIcon", ()=>(0, _refreshIconJsDefault.default));
+parcelHelpers.export(exports, "ReplyIcon", ()=>(0, _replyIconJsDefault.default));
+parcelHelpers.export(exports, "RewindIcon", ()=>(0, _rewindIconJsDefault.default));
+parcelHelpers.export(exports, "RssIcon", ()=>(0, _rssIconJsDefault.default));
+parcelHelpers.export(exports, "SaveAsIcon", ()=>(0, _saveAsIconJsDefault.default));
+parcelHelpers.export(exports, "SaveIcon", ()=>(0, _saveIconJsDefault.default));
+parcelHelpers.export(exports, "ScaleIcon", ()=>(0, _scaleIconJsDefault.default));
+parcelHelpers.export(exports, "ScissorsIcon", ()=>(0, _scissorsIconJsDefault.default));
+parcelHelpers.export(exports, "SearchCircleIcon", ()=>(0, _searchCircleIconJsDefault.default));
+parcelHelpers.export(exports, "SearchIcon", ()=>(0, _searchIconJsDefault.default));
+parcelHelpers.export(exports, "SelectorIcon", ()=>(0, _selectorIconJsDefault.default));
+parcelHelpers.export(exports, "ServerIcon", ()=>(0, _serverIconJsDefault.default));
+parcelHelpers.export(exports, "ShareIcon", ()=>(0, _shareIconJsDefault.default));
+parcelHelpers.export(exports, "ShieldCheckIcon", ()=>(0, _shieldCheckIconJsDefault.default));
+parcelHelpers.export(exports, "ShieldExclamationIcon", ()=>(0, _shieldExclamationIconJsDefault.default));
+parcelHelpers.export(exports, "ShoppingBagIcon", ()=>(0, _shoppingBagIconJsDefault.default));
+parcelHelpers.export(exports, "ShoppingCartIcon", ()=>(0, _shoppingCartIconJsDefault.default));
+parcelHelpers.export(exports, "SortAscendingIcon", ()=>(0, _sortAscendingIconJsDefault.default));
+parcelHelpers.export(exports, "SortDescendingIcon", ()=>(0, _sortDescendingIconJsDefault.default));
+parcelHelpers.export(exports, "SparklesIcon", ()=>(0, _sparklesIconJsDefault.default));
+parcelHelpers.export(exports, "SpeakerphoneIcon", ()=>(0, _speakerphoneIconJsDefault.default));
+parcelHelpers.export(exports, "StarIcon", ()=>(0, _starIconJsDefault.default));
+parcelHelpers.export(exports, "StatusOfflineIcon", ()=>(0, _statusOfflineIconJsDefault.default));
+parcelHelpers.export(exports, "StatusOnlineIcon", ()=>(0, _statusOnlineIconJsDefault.default));
+parcelHelpers.export(exports, "StopIcon", ()=>(0, _stopIconJsDefault.default));
+parcelHelpers.export(exports, "SunIcon", ()=>(0, _sunIconJsDefault.default));
+parcelHelpers.export(exports, "SupportIcon", ()=>(0, _supportIconJsDefault.default));
+parcelHelpers.export(exports, "SwitchHorizontalIcon", ()=>(0, _switchHorizontalIconJsDefault.default));
+parcelHelpers.export(exports, "SwitchVerticalIcon", ()=>(0, _switchVerticalIconJsDefault.default));
+parcelHelpers.export(exports, "TableIcon", ()=>(0, _tableIconJsDefault.default));
+parcelHelpers.export(exports, "TagIcon", ()=>(0, _tagIconJsDefault.default));
+parcelHelpers.export(exports, "TemplateIcon", ()=>(0, _templateIconJsDefault.default));
+parcelHelpers.export(exports, "TerminalIcon", ()=>(0, _terminalIconJsDefault.default));
+parcelHelpers.export(exports, "ThumbDownIcon", ()=>(0, _thumbDownIconJsDefault.default));
+parcelHelpers.export(exports, "ThumbUpIcon", ()=>(0, _thumbUpIconJsDefault.default));
+parcelHelpers.export(exports, "TicketIcon", ()=>(0, _ticketIconJsDefault.default));
+parcelHelpers.export(exports, "TranslateIcon", ()=>(0, _translateIconJsDefault.default));
+parcelHelpers.export(exports, "TrashIcon", ()=>(0, _trashIconJsDefault.default));
+parcelHelpers.export(exports, "TrendingDownIcon", ()=>(0, _trendingDownIconJsDefault.default));
+parcelHelpers.export(exports, "TrendingUpIcon", ()=>(0, _trendingUpIconJsDefault.default));
+parcelHelpers.export(exports, "TruckIcon", ()=>(0, _truckIconJsDefault.default));
+parcelHelpers.export(exports, "UploadIcon", ()=>(0, _uploadIconJsDefault.default));
+parcelHelpers.export(exports, "UserAddIcon", ()=>(0, _userAddIconJsDefault.default));
+parcelHelpers.export(exports, "UserCircleIcon", ()=>(0, _userCircleIconJsDefault.default));
+parcelHelpers.export(exports, "UserGroupIcon", ()=>(0, _userGroupIconJsDefault.default));
+parcelHelpers.export(exports, "UserRemoveIcon", ()=>(0, _userRemoveIconJsDefault.default));
+parcelHelpers.export(exports, "UserIcon", ()=>(0, _userIconJsDefault.default));
+parcelHelpers.export(exports, "UsersIcon", ()=>(0, _usersIconJsDefault.default));
+parcelHelpers.export(exports, "VariableIcon", ()=>(0, _variableIconJsDefault.default));
+parcelHelpers.export(exports, "VideoCameraIcon", ()=>(0, _videoCameraIconJsDefault.default));
+parcelHelpers.export(exports, "ViewBoardsIcon", ()=>(0, _viewBoardsIconJsDefault.default));
+parcelHelpers.export(exports, "ViewGridAddIcon", ()=>(0, _viewGridAddIconJsDefault.default));
+parcelHelpers.export(exports, "ViewGridIcon", ()=>(0, _viewGridIconJsDefault.default));
+parcelHelpers.export(exports, "ViewListIcon", ()=>(0, _viewListIconJsDefault.default));
+parcelHelpers.export(exports, "VolumeOffIcon", ()=>(0, _volumeOffIconJsDefault.default));
+parcelHelpers.export(exports, "VolumeUpIcon", ()=>(0, _volumeUpIconJsDefault.default));
+parcelHelpers.export(exports, "WifiIcon", ()=>(0, _wifiIconJsDefault.default));
+parcelHelpers.export(exports, "XCircleIcon", ()=>(0, _xcircleIconJsDefault.default));
+parcelHelpers.export(exports, "XIcon", ()=>(0, _xiconJsDefault.default));
+parcelHelpers.export(exports, "ZoomInIcon", ()=>(0, _zoomInIconJsDefault.default));
+parcelHelpers.export(exports, "ZoomOutIcon", ()=>(0, _zoomOutIconJsDefault.default));
+var _academicCapIconJs = require("./AcademicCapIcon.js");
+var _academicCapIconJsDefault = parcelHelpers.interopDefault(_academicCapIconJs);
+var _adjustmentsIconJs = require("./AdjustmentsIcon.js");
+var _adjustmentsIconJsDefault = parcelHelpers.interopDefault(_adjustmentsIconJs);
+var _annotationIconJs = require("./AnnotationIcon.js");
+var _annotationIconJsDefault = parcelHelpers.interopDefault(_annotationIconJs);
+var _archiveIconJs = require("./ArchiveIcon.js");
+var _archiveIconJsDefault = parcelHelpers.interopDefault(_archiveIconJs);
+var _arrowCircleDownIconJs = require("./ArrowCircleDownIcon.js");
+var _arrowCircleDownIconJsDefault = parcelHelpers.interopDefault(_arrowCircleDownIconJs);
+var _arrowCircleLeftIconJs = require("./ArrowCircleLeftIcon.js");
+var _arrowCircleLeftIconJsDefault = parcelHelpers.interopDefault(_arrowCircleLeftIconJs);
+var _arrowCircleRightIconJs = require("./ArrowCircleRightIcon.js");
+var _arrowCircleRightIconJsDefault = parcelHelpers.interopDefault(_arrowCircleRightIconJs);
+var _arrowCircleUpIconJs = require("./ArrowCircleUpIcon.js");
+var _arrowCircleUpIconJsDefault = parcelHelpers.interopDefault(_arrowCircleUpIconJs);
+var _arrowDownIconJs = require("./ArrowDownIcon.js");
+var _arrowDownIconJsDefault = parcelHelpers.interopDefault(_arrowDownIconJs);
+var _arrowLeftIconJs = require("./ArrowLeftIcon.js");
+var _arrowLeftIconJsDefault = parcelHelpers.interopDefault(_arrowLeftIconJs);
+var _arrowNarrowDownIconJs = require("./ArrowNarrowDownIcon.js");
+var _arrowNarrowDownIconJsDefault = parcelHelpers.interopDefault(_arrowNarrowDownIconJs);
+var _arrowNarrowLeftIconJs = require("./ArrowNarrowLeftIcon.js");
+var _arrowNarrowLeftIconJsDefault = parcelHelpers.interopDefault(_arrowNarrowLeftIconJs);
+var _arrowNarrowRightIconJs = require("./ArrowNarrowRightIcon.js");
+var _arrowNarrowRightIconJsDefault = parcelHelpers.interopDefault(_arrowNarrowRightIconJs);
+var _arrowNarrowUpIconJs = require("./ArrowNarrowUpIcon.js");
+var _arrowNarrowUpIconJsDefault = parcelHelpers.interopDefault(_arrowNarrowUpIconJs);
+var _arrowRightIconJs = require("./ArrowRightIcon.js");
+var _arrowRightIconJsDefault = parcelHelpers.interopDefault(_arrowRightIconJs);
+var _arrowSmDownIconJs = require("./ArrowSmDownIcon.js");
+var _arrowSmDownIconJsDefault = parcelHelpers.interopDefault(_arrowSmDownIconJs);
+var _arrowSmLeftIconJs = require("./ArrowSmLeftIcon.js");
+var _arrowSmLeftIconJsDefault = parcelHelpers.interopDefault(_arrowSmLeftIconJs);
+var _arrowSmRightIconJs = require("./ArrowSmRightIcon.js");
+var _arrowSmRightIconJsDefault = parcelHelpers.interopDefault(_arrowSmRightIconJs);
+var _arrowSmUpIconJs = require("./ArrowSmUpIcon.js");
+var _arrowSmUpIconJsDefault = parcelHelpers.interopDefault(_arrowSmUpIconJs);
+var _arrowUpIconJs = require("./ArrowUpIcon.js");
+var _arrowUpIconJsDefault = parcelHelpers.interopDefault(_arrowUpIconJs);
+var _arrowsExpandIconJs = require("./ArrowsExpandIcon.js");
+var _arrowsExpandIconJsDefault = parcelHelpers.interopDefault(_arrowsExpandIconJs);
+var _atSymbolIconJs = require("./AtSymbolIcon.js");
+var _atSymbolIconJsDefault = parcelHelpers.interopDefault(_atSymbolIconJs);
+var _backspaceIconJs = require("./BackspaceIcon.js");
+var _backspaceIconJsDefault = parcelHelpers.interopDefault(_backspaceIconJs);
+var _badgeCheckIconJs = require("./BadgeCheckIcon.js");
+var _badgeCheckIconJsDefault = parcelHelpers.interopDefault(_badgeCheckIconJs);
+var _banIconJs = require("./BanIcon.js");
+var _banIconJsDefault = parcelHelpers.interopDefault(_banIconJs);
+var _beakerIconJs = require("./BeakerIcon.js");
+var _beakerIconJsDefault = parcelHelpers.interopDefault(_beakerIconJs);
+var _bellIconJs = require("./BellIcon.js");
+var _bellIconJsDefault = parcelHelpers.interopDefault(_bellIconJs);
+var _bookOpenIconJs = require("./BookOpenIcon.js");
+var _bookOpenIconJsDefault = parcelHelpers.interopDefault(_bookOpenIconJs);
+var _bookmarkAltIconJs = require("./BookmarkAltIcon.js");
+var _bookmarkAltIconJsDefault = parcelHelpers.interopDefault(_bookmarkAltIconJs);
+var _bookmarkIconJs = require("./BookmarkIcon.js");
+var _bookmarkIconJsDefault = parcelHelpers.interopDefault(_bookmarkIconJs);
+var _briefcaseIconJs = require("./BriefcaseIcon.js");
+var _briefcaseIconJsDefault = parcelHelpers.interopDefault(_briefcaseIconJs);
+var _cakeIconJs = require("./CakeIcon.js");
+var _cakeIconJsDefault = parcelHelpers.interopDefault(_cakeIconJs);
+var _calculatorIconJs = require("./CalculatorIcon.js");
+var _calculatorIconJsDefault = parcelHelpers.interopDefault(_calculatorIconJs);
+var _calendarIconJs = require("./CalendarIcon.js");
+var _calendarIconJsDefault = parcelHelpers.interopDefault(_calendarIconJs);
+var _cameraIconJs = require("./CameraIcon.js");
+var _cameraIconJsDefault = parcelHelpers.interopDefault(_cameraIconJs);
+var _cashIconJs = require("./CashIcon.js");
+var _cashIconJsDefault = parcelHelpers.interopDefault(_cashIconJs);
+var _chartBarIconJs = require("./ChartBarIcon.js");
+var _chartBarIconJsDefault = parcelHelpers.interopDefault(_chartBarIconJs);
+var _chartPieIconJs = require("./ChartPieIcon.js");
+var _chartPieIconJsDefault = parcelHelpers.interopDefault(_chartPieIconJs);
+var _chartSquareBarIconJs = require("./ChartSquareBarIcon.js");
+var _chartSquareBarIconJsDefault = parcelHelpers.interopDefault(_chartSquareBarIconJs);
+var _chatAlt2IconJs = require("./ChatAlt2Icon.js");
+var _chatAlt2IconJsDefault = parcelHelpers.interopDefault(_chatAlt2IconJs);
+var _chatAltIconJs = require("./ChatAltIcon.js");
+var _chatAltIconJsDefault = parcelHelpers.interopDefault(_chatAltIconJs);
+var _chatIconJs = require("./ChatIcon.js");
+var _chatIconJsDefault = parcelHelpers.interopDefault(_chatIconJs);
+var _checkCircleIconJs = require("./CheckCircleIcon.js");
+var _checkCircleIconJsDefault = parcelHelpers.interopDefault(_checkCircleIconJs);
+var _checkIconJs = require("./CheckIcon.js");
+var _checkIconJsDefault = parcelHelpers.interopDefault(_checkIconJs);
+var _chevronDoubleDownIconJs = require("./ChevronDoubleDownIcon.js");
+var _chevronDoubleDownIconJsDefault = parcelHelpers.interopDefault(_chevronDoubleDownIconJs);
+var _chevronDoubleLeftIconJs = require("./ChevronDoubleLeftIcon.js");
+var _chevronDoubleLeftIconJsDefault = parcelHelpers.interopDefault(_chevronDoubleLeftIconJs);
+var _chevronDoubleRightIconJs = require("./ChevronDoubleRightIcon.js");
+var _chevronDoubleRightIconJsDefault = parcelHelpers.interopDefault(_chevronDoubleRightIconJs);
+var _chevronDoubleUpIconJs = require("./ChevronDoubleUpIcon.js");
+var _chevronDoubleUpIconJsDefault = parcelHelpers.interopDefault(_chevronDoubleUpIconJs);
+var _chevronDownIconJs = require("./ChevronDownIcon.js");
+var _chevronDownIconJsDefault = parcelHelpers.interopDefault(_chevronDownIconJs);
+var _chevronLeftIconJs = require("./ChevronLeftIcon.js");
+var _chevronLeftIconJsDefault = parcelHelpers.interopDefault(_chevronLeftIconJs);
+var _chevronRightIconJs = require("./ChevronRightIcon.js");
+var _chevronRightIconJsDefault = parcelHelpers.interopDefault(_chevronRightIconJs);
+var _chevronUpIconJs = require("./ChevronUpIcon.js");
+var _chevronUpIconJsDefault = parcelHelpers.interopDefault(_chevronUpIconJs);
+var _chipIconJs = require("./ChipIcon.js");
+var _chipIconJsDefault = parcelHelpers.interopDefault(_chipIconJs);
+var _clipboardCheckIconJs = require("./ClipboardCheckIcon.js");
+var _clipboardCheckIconJsDefault = parcelHelpers.interopDefault(_clipboardCheckIconJs);
+var _clipboardCopyIconJs = require("./ClipboardCopyIcon.js");
+var _clipboardCopyIconJsDefault = parcelHelpers.interopDefault(_clipboardCopyIconJs);
+var _clipboardListIconJs = require("./ClipboardListIcon.js");
+var _clipboardListIconJsDefault = parcelHelpers.interopDefault(_clipboardListIconJs);
+var _clipboardIconJs = require("./ClipboardIcon.js");
+var _clipboardIconJsDefault = parcelHelpers.interopDefault(_clipboardIconJs);
+var _clockIconJs = require("./ClockIcon.js");
+var _clockIconJsDefault = parcelHelpers.interopDefault(_clockIconJs);
+var _cloudDownloadIconJs = require("./CloudDownloadIcon.js");
+var _cloudDownloadIconJsDefault = parcelHelpers.interopDefault(_cloudDownloadIconJs);
+var _cloudUploadIconJs = require("./CloudUploadIcon.js");
+var _cloudUploadIconJsDefault = parcelHelpers.interopDefault(_cloudUploadIconJs);
+var _cloudIconJs = require("./CloudIcon.js");
+var _cloudIconJsDefault = parcelHelpers.interopDefault(_cloudIconJs);
+var _codeIconJs = require("./CodeIcon.js");
+var _codeIconJsDefault = parcelHelpers.interopDefault(_codeIconJs);
+var _cogIconJs = require("./CogIcon.js");
+var _cogIconJsDefault = parcelHelpers.interopDefault(_cogIconJs);
+var _collectionIconJs = require("./CollectionIcon.js");
+var _collectionIconJsDefault = parcelHelpers.interopDefault(_collectionIconJs);
+var _colorSwatchIconJs = require("./ColorSwatchIcon.js");
+var _colorSwatchIconJsDefault = parcelHelpers.interopDefault(_colorSwatchIconJs);
+var _creditCardIconJs = require("./CreditCardIcon.js");
+var _creditCardIconJsDefault = parcelHelpers.interopDefault(_creditCardIconJs);
+var _cubeTransparentIconJs = require("./CubeTransparentIcon.js");
+var _cubeTransparentIconJsDefault = parcelHelpers.interopDefault(_cubeTransparentIconJs);
+var _cubeIconJs = require("./CubeIcon.js");
+var _cubeIconJsDefault = parcelHelpers.interopDefault(_cubeIconJs);
+var _currencyBangladeshiIconJs = require("./CurrencyBangladeshiIcon.js");
+var _currencyBangladeshiIconJsDefault = parcelHelpers.interopDefault(_currencyBangladeshiIconJs);
+var _currencyDollarIconJs = require("./CurrencyDollarIcon.js");
+var _currencyDollarIconJsDefault = parcelHelpers.interopDefault(_currencyDollarIconJs);
+var _currencyEuroIconJs = require("./CurrencyEuroIcon.js");
+var _currencyEuroIconJsDefault = parcelHelpers.interopDefault(_currencyEuroIconJs);
+var _currencyPoundIconJs = require("./CurrencyPoundIcon.js");
+var _currencyPoundIconJsDefault = parcelHelpers.interopDefault(_currencyPoundIconJs);
+var _currencyRupeeIconJs = require("./CurrencyRupeeIcon.js");
+var _currencyRupeeIconJsDefault = parcelHelpers.interopDefault(_currencyRupeeIconJs);
+var _currencyYenIconJs = require("./CurrencyYenIcon.js");
+var _currencyYenIconJsDefault = parcelHelpers.interopDefault(_currencyYenIconJs);
+var _cursorClickIconJs = require("./CursorClickIcon.js");
+var _cursorClickIconJsDefault = parcelHelpers.interopDefault(_cursorClickIconJs);
+var _databaseIconJs = require("./DatabaseIcon.js");
+var _databaseIconJsDefault = parcelHelpers.interopDefault(_databaseIconJs);
+var _desktopComputerIconJs = require("./DesktopComputerIcon.js");
+var _desktopComputerIconJsDefault = parcelHelpers.interopDefault(_desktopComputerIconJs);
+var _deviceMobileIconJs = require("./DeviceMobileIcon.js");
+var _deviceMobileIconJsDefault = parcelHelpers.interopDefault(_deviceMobileIconJs);
+var _deviceTabletIconJs = require("./DeviceTabletIcon.js");
+var _deviceTabletIconJsDefault = parcelHelpers.interopDefault(_deviceTabletIconJs);
+var _documentAddIconJs = require("./DocumentAddIcon.js");
+var _documentAddIconJsDefault = parcelHelpers.interopDefault(_documentAddIconJs);
+var _documentDownloadIconJs = require("./DocumentDownloadIcon.js");
+var _documentDownloadIconJsDefault = parcelHelpers.interopDefault(_documentDownloadIconJs);
+var _documentDuplicateIconJs = require("./DocumentDuplicateIcon.js");
+var _documentDuplicateIconJsDefault = parcelHelpers.interopDefault(_documentDuplicateIconJs);
+var _documentRemoveIconJs = require("./DocumentRemoveIcon.js");
+var _documentRemoveIconJsDefault = parcelHelpers.interopDefault(_documentRemoveIconJs);
+var _documentReportIconJs = require("./DocumentReportIcon.js");
+var _documentReportIconJsDefault = parcelHelpers.interopDefault(_documentReportIconJs);
+var _documentSearchIconJs = require("./DocumentSearchIcon.js");
+var _documentSearchIconJsDefault = parcelHelpers.interopDefault(_documentSearchIconJs);
+var _documentTextIconJs = require("./DocumentTextIcon.js");
+var _documentTextIconJsDefault = parcelHelpers.interopDefault(_documentTextIconJs);
+var _documentIconJs = require("./DocumentIcon.js");
+var _documentIconJsDefault = parcelHelpers.interopDefault(_documentIconJs);
+var _dotsCircleHorizontalIconJs = require("./DotsCircleHorizontalIcon.js");
+var _dotsCircleHorizontalIconJsDefault = parcelHelpers.interopDefault(_dotsCircleHorizontalIconJs);
+var _dotsHorizontalIconJs = require("./DotsHorizontalIcon.js");
+var _dotsHorizontalIconJsDefault = parcelHelpers.interopDefault(_dotsHorizontalIconJs);
+var _dotsVerticalIconJs = require("./DotsVerticalIcon.js");
+var _dotsVerticalIconJsDefault = parcelHelpers.interopDefault(_dotsVerticalIconJs);
+var _downloadIconJs = require("./DownloadIcon.js");
+var _downloadIconJsDefault = parcelHelpers.interopDefault(_downloadIconJs);
+var _duplicateIconJs = require("./DuplicateIcon.js");
+var _duplicateIconJsDefault = parcelHelpers.interopDefault(_duplicateIconJs);
+var _emojiHappyIconJs = require("./EmojiHappyIcon.js");
+var _emojiHappyIconJsDefault = parcelHelpers.interopDefault(_emojiHappyIconJs);
+var _emojiSadIconJs = require("./EmojiSadIcon.js");
+var _emojiSadIconJsDefault = parcelHelpers.interopDefault(_emojiSadIconJs);
+var _exclamationCircleIconJs = require("./ExclamationCircleIcon.js");
+var _exclamationCircleIconJsDefault = parcelHelpers.interopDefault(_exclamationCircleIconJs);
+var _exclamationIconJs = require("./ExclamationIcon.js");
+var _exclamationIconJsDefault = parcelHelpers.interopDefault(_exclamationIconJs);
+var _externalLinkIconJs = require("./ExternalLinkIcon.js");
+var _externalLinkIconJsDefault = parcelHelpers.interopDefault(_externalLinkIconJs);
+var _eyeOffIconJs = require("./EyeOffIcon.js");
+var _eyeOffIconJsDefault = parcelHelpers.interopDefault(_eyeOffIconJs);
+var _eyeIconJs = require("./EyeIcon.js");
+var _eyeIconJsDefault = parcelHelpers.interopDefault(_eyeIconJs);
+var _fastForwardIconJs = require("./FastForwardIcon.js");
+var _fastForwardIconJsDefault = parcelHelpers.interopDefault(_fastForwardIconJs);
+var _filmIconJs = require("./FilmIcon.js");
+var _filmIconJsDefault = parcelHelpers.interopDefault(_filmIconJs);
+var _filterIconJs = require("./FilterIcon.js");
+var _filterIconJsDefault = parcelHelpers.interopDefault(_filterIconJs);
+var _fingerPrintIconJs = require("./FingerPrintIcon.js");
+var _fingerPrintIconJsDefault = parcelHelpers.interopDefault(_fingerPrintIconJs);
+var _fireIconJs = require("./FireIcon.js");
+var _fireIconJsDefault = parcelHelpers.interopDefault(_fireIconJs);
+var _flagIconJs = require("./FlagIcon.js");
+var _flagIconJsDefault = parcelHelpers.interopDefault(_flagIconJs);
+var _folderAddIconJs = require("./FolderAddIcon.js");
+var _folderAddIconJsDefault = parcelHelpers.interopDefault(_folderAddIconJs);
+var _folderDownloadIconJs = require("./FolderDownloadIcon.js");
+var _folderDownloadIconJsDefault = parcelHelpers.interopDefault(_folderDownloadIconJs);
+var _folderOpenIconJs = require("./FolderOpenIcon.js");
+var _folderOpenIconJsDefault = parcelHelpers.interopDefault(_folderOpenIconJs);
+var _folderRemoveIconJs = require("./FolderRemoveIcon.js");
+var _folderRemoveIconJsDefault = parcelHelpers.interopDefault(_folderRemoveIconJs);
+var _folderIconJs = require("./FolderIcon.js");
+var _folderIconJsDefault = parcelHelpers.interopDefault(_folderIconJs);
+var _giftIconJs = require("./GiftIcon.js");
+var _giftIconJsDefault = parcelHelpers.interopDefault(_giftIconJs);
+var _globeAltIconJs = require("./GlobeAltIcon.js");
+var _globeAltIconJsDefault = parcelHelpers.interopDefault(_globeAltIconJs);
+var _globeIconJs = require("./GlobeIcon.js");
+var _globeIconJsDefault = parcelHelpers.interopDefault(_globeIconJs);
+var _handIconJs = require("./HandIcon.js");
+var _handIconJsDefault = parcelHelpers.interopDefault(_handIconJs);
+var _hashtagIconJs = require("./HashtagIcon.js");
+var _hashtagIconJsDefault = parcelHelpers.interopDefault(_hashtagIconJs);
+var _heartIconJs = require("./HeartIcon.js");
+var _heartIconJsDefault = parcelHelpers.interopDefault(_heartIconJs);
+var _homeIconJs = require("./HomeIcon.js");
+var _homeIconJsDefault = parcelHelpers.interopDefault(_homeIconJs);
+var _identificationIconJs = require("./IdentificationIcon.js");
+var _identificationIconJsDefault = parcelHelpers.interopDefault(_identificationIconJs);
+var _inboxInIconJs = require("./InboxInIcon.js");
+var _inboxInIconJsDefault = parcelHelpers.interopDefault(_inboxInIconJs);
+var _inboxIconJs = require("./InboxIcon.js");
+var _inboxIconJsDefault = parcelHelpers.interopDefault(_inboxIconJs);
+var _informationCircleIconJs = require("./InformationCircleIcon.js");
+var _informationCircleIconJsDefault = parcelHelpers.interopDefault(_informationCircleIconJs);
+var _keyIconJs = require("./KeyIcon.js");
+var _keyIconJsDefault = parcelHelpers.interopDefault(_keyIconJs);
+var _libraryIconJs = require("./LibraryIcon.js");
+var _libraryIconJsDefault = parcelHelpers.interopDefault(_libraryIconJs);
+var _lightBulbIconJs = require("./LightBulbIcon.js");
+var _lightBulbIconJsDefault = parcelHelpers.interopDefault(_lightBulbIconJs);
+var _lightningBoltIconJs = require("./LightningBoltIcon.js");
+var _lightningBoltIconJsDefault = parcelHelpers.interopDefault(_lightningBoltIconJs);
+var _linkIconJs = require("./LinkIcon.js");
+var _linkIconJsDefault = parcelHelpers.interopDefault(_linkIconJs);
+var _locationMarkerIconJs = require("./LocationMarkerIcon.js");
+var _locationMarkerIconJsDefault = parcelHelpers.interopDefault(_locationMarkerIconJs);
+var _lockClosedIconJs = require("./LockClosedIcon.js");
+var _lockClosedIconJsDefault = parcelHelpers.interopDefault(_lockClosedIconJs);
+var _lockOpenIconJs = require("./LockOpenIcon.js");
+var _lockOpenIconJsDefault = parcelHelpers.interopDefault(_lockOpenIconJs);
+var _loginIconJs = require("./LoginIcon.js");
+var _loginIconJsDefault = parcelHelpers.interopDefault(_loginIconJs);
+var _logoutIconJs = require("./LogoutIcon.js");
+var _logoutIconJsDefault = parcelHelpers.interopDefault(_logoutIconJs);
+var _mailOpenIconJs = require("./MailOpenIcon.js");
+var _mailOpenIconJsDefault = parcelHelpers.interopDefault(_mailOpenIconJs);
+var _mailIconJs = require("./MailIcon.js");
+var _mailIconJsDefault = parcelHelpers.interopDefault(_mailIconJs);
+var _mapIconJs = require("./MapIcon.js");
+var _mapIconJsDefault = parcelHelpers.interopDefault(_mapIconJs);
+var _menuAlt1IconJs = require("./MenuAlt1Icon.js");
+var _menuAlt1IconJsDefault = parcelHelpers.interopDefault(_menuAlt1IconJs);
+var _menuAlt2IconJs = require("./MenuAlt2Icon.js");
+var _menuAlt2IconJsDefault = parcelHelpers.interopDefault(_menuAlt2IconJs);
+var _menuAlt3IconJs = require("./MenuAlt3Icon.js");
+var _menuAlt3IconJsDefault = parcelHelpers.interopDefault(_menuAlt3IconJs);
+var _menuAlt4IconJs = require("./MenuAlt4Icon.js");
+var _menuAlt4IconJsDefault = parcelHelpers.interopDefault(_menuAlt4IconJs);
+var _menuIconJs = require("./MenuIcon.js");
+var _menuIconJsDefault = parcelHelpers.interopDefault(_menuIconJs);
+var _microphoneIconJs = require("./MicrophoneIcon.js");
+var _microphoneIconJsDefault = parcelHelpers.interopDefault(_microphoneIconJs);
+var _minusCircleIconJs = require("./MinusCircleIcon.js");
+var _minusCircleIconJsDefault = parcelHelpers.interopDefault(_minusCircleIconJs);
+var _minusSmIconJs = require("./MinusSmIcon.js");
+var _minusSmIconJsDefault = parcelHelpers.interopDefault(_minusSmIconJs);
+var _minusIconJs = require("./MinusIcon.js");
+var _minusIconJsDefault = parcelHelpers.interopDefault(_minusIconJs);
+var _moonIconJs = require("./MoonIcon.js");
+var _moonIconJsDefault = parcelHelpers.interopDefault(_moonIconJs);
+var _musicNoteIconJs = require("./MusicNoteIcon.js");
+var _musicNoteIconJsDefault = parcelHelpers.interopDefault(_musicNoteIconJs);
+var _newspaperIconJs = require("./NewspaperIcon.js");
+var _newspaperIconJsDefault = parcelHelpers.interopDefault(_newspaperIconJs);
+var _officeBuildingIconJs = require("./OfficeBuildingIcon.js");
+var _officeBuildingIconJsDefault = parcelHelpers.interopDefault(_officeBuildingIconJs);
+var _paperAirplaneIconJs = require("./PaperAirplaneIcon.js");
+var _paperAirplaneIconJsDefault = parcelHelpers.interopDefault(_paperAirplaneIconJs);
+var _paperClipIconJs = require("./PaperClipIcon.js");
+var _paperClipIconJsDefault = parcelHelpers.interopDefault(_paperClipIconJs);
+var _pauseIconJs = require("./PauseIcon.js");
+var _pauseIconJsDefault = parcelHelpers.interopDefault(_pauseIconJs);
+var _pencilAltIconJs = require("./PencilAltIcon.js");
+var _pencilAltIconJsDefault = parcelHelpers.interopDefault(_pencilAltIconJs);
+var _pencilIconJs = require("./PencilIcon.js");
+var _pencilIconJsDefault = parcelHelpers.interopDefault(_pencilIconJs);
+var _phoneIncomingIconJs = require("./PhoneIncomingIcon.js");
+var _phoneIncomingIconJsDefault = parcelHelpers.interopDefault(_phoneIncomingIconJs);
+var _phoneMissedCallIconJs = require("./PhoneMissedCallIcon.js");
+var _phoneMissedCallIconJsDefault = parcelHelpers.interopDefault(_phoneMissedCallIconJs);
+var _phoneOutgoingIconJs = require("./PhoneOutgoingIcon.js");
+var _phoneOutgoingIconJsDefault = parcelHelpers.interopDefault(_phoneOutgoingIconJs);
+var _phoneIconJs = require("./PhoneIcon.js");
+var _phoneIconJsDefault = parcelHelpers.interopDefault(_phoneIconJs);
+var _photographIconJs = require("./PhotographIcon.js");
+var _photographIconJsDefault = parcelHelpers.interopDefault(_photographIconJs);
+var _playIconJs = require("./PlayIcon.js");
+var _playIconJsDefault = parcelHelpers.interopDefault(_playIconJs);
+var _plusCircleIconJs = require("./PlusCircleIcon.js");
+var _plusCircleIconJsDefault = parcelHelpers.interopDefault(_plusCircleIconJs);
+var _plusSmIconJs = require("./PlusSmIcon.js");
+var _plusSmIconJsDefault = parcelHelpers.interopDefault(_plusSmIconJs);
+var _plusIconJs = require("./PlusIcon.js");
+var _plusIconJsDefault = parcelHelpers.interopDefault(_plusIconJs);
+var _presentationChartBarIconJs = require("./PresentationChartBarIcon.js");
+var _presentationChartBarIconJsDefault = parcelHelpers.interopDefault(_presentationChartBarIconJs);
+var _presentationChartLineIconJs = require("./PresentationChartLineIcon.js");
+var _presentationChartLineIconJsDefault = parcelHelpers.interopDefault(_presentationChartLineIconJs);
+var _printerIconJs = require("./PrinterIcon.js");
+var _printerIconJsDefault = parcelHelpers.interopDefault(_printerIconJs);
+var _puzzleIconJs = require("./PuzzleIcon.js");
+var _puzzleIconJsDefault = parcelHelpers.interopDefault(_puzzleIconJs);
+var _qrcodeIconJs = require("./QrcodeIcon.js");
+var _qrcodeIconJsDefault = parcelHelpers.interopDefault(_qrcodeIconJs);
+var _questionMarkCircleIconJs = require("./QuestionMarkCircleIcon.js");
+var _questionMarkCircleIconJsDefault = parcelHelpers.interopDefault(_questionMarkCircleIconJs);
+var _receiptRefundIconJs = require("./ReceiptRefundIcon.js");
+var _receiptRefundIconJsDefault = parcelHelpers.interopDefault(_receiptRefundIconJs);
+var _receiptTaxIconJs = require("./ReceiptTaxIcon.js");
+var _receiptTaxIconJsDefault = parcelHelpers.interopDefault(_receiptTaxIconJs);
+var _refreshIconJs = require("./RefreshIcon.js");
+var _refreshIconJsDefault = parcelHelpers.interopDefault(_refreshIconJs);
+var _replyIconJs = require("./ReplyIcon.js");
+var _replyIconJsDefault = parcelHelpers.interopDefault(_replyIconJs);
+var _rewindIconJs = require("./RewindIcon.js");
+var _rewindIconJsDefault = parcelHelpers.interopDefault(_rewindIconJs);
+var _rssIconJs = require("./RssIcon.js");
+var _rssIconJsDefault = parcelHelpers.interopDefault(_rssIconJs);
+var _saveAsIconJs = require("./SaveAsIcon.js");
+var _saveAsIconJsDefault = parcelHelpers.interopDefault(_saveAsIconJs);
+var _saveIconJs = require("./SaveIcon.js");
+var _saveIconJsDefault = parcelHelpers.interopDefault(_saveIconJs);
+var _scaleIconJs = require("./ScaleIcon.js");
+var _scaleIconJsDefault = parcelHelpers.interopDefault(_scaleIconJs);
+var _scissorsIconJs = require("./ScissorsIcon.js");
+var _scissorsIconJsDefault = parcelHelpers.interopDefault(_scissorsIconJs);
+var _searchCircleIconJs = require("./SearchCircleIcon.js");
+var _searchCircleIconJsDefault = parcelHelpers.interopDefault(_searchCircleIconJs);
+var _searchIconJs = require("./SearchIcon.js");
+var _searchIconJsDefault = parcelHelpers.interopDefault(_searchIconJs);
+var _selectorIconJs = require("./SelectorIcon.js");
+var _selectorIconJsDefault = parcelHelpers.interopDefault(_selectorIconJs);
+var _serverIconJs = require("./ServerIcon.js");
+var _serverIconJsDefault = parcelHelpers.interopDefault(_serverIconJs);
+var _shareIconJs = require("./ShareIcon.js");
+var _shareIconJsDefault = parcelHelpers.interopDefault(_shareIconJs);
+var _shieldCheckIconJs = require("./ShieldCheckIcon.js");
+var _shieldCheckIconJsDefault = parcelHelpers.interopDefault(_shieldCheckIconJs);
+var _shieldExclamationIconJs = require("./ShieldExclamationIcon.js");
+var _shieldExclamationIconJsDefault = parcelHelpers.interopDefault(_shieldExclamationIconJs);
+var _shoppingBagIconJs = require("./ShoppingBagIcon.js");
+var _shoppingBagIconJsDefault = parcelHelpers.interopDefault(_shoppingBagIconJs);
+var _shoppingCartIconJs = require("./ShoppingCartIcon.js");
+var _shoppingCartIconJsDefault = parcelHelpers.interopDefault(_shoppingCartIconJs);
+var _sortAscendingIconJs = require("./SortAscendingIcon.js");
+var _sortAscendingIconJsDefault = parcelHelpers.interopDefault(_sortAscendingIconJs);
+var _sortDescendingIconJs = require("./SortDescendingIcon.js");
+var _sortDescendingIconJsDefault = parcelHelpers.interopDefault(_sortDescendingIconJs);
+var _sparklesIconJs = require("./SparklesIcon.js");
+var _sparklesIconJsDefault = parcelHelpers.interopDefault(_sparklesIconJs);
+var _speakerphoneIconJs = require("./SpeakerphoneIcon.js");
+var _speakerphoneIconJsDefault = parcelHelpers.interopDefault(_speakerphoneIconJs);
+var _starIconJs = require("./StarIcon.js");
+var _starIconJsDefault = parcelHelpers.interopDefault(_starIconJs);
+var _statusOfflineIconJs = require("./StatusOfflineIcon.js");
+var _statusOfflineIconJsDefault = parcelHelpers.interopDefault(_statusOfflineIconJs);
+var _statusOnlineIconJs = require("./StatusOnlineIcon.js");
+var _statusOnlineIconJsDefault = parcelHelpers.interopDefault(_statusOnlineIconJs);
+var _stopIconJs = require("./StopIcon.js");
+var _stopIconJsDefault = parcelHelpers.interopDefault(_stopIconJs);
+var _sunIconJs = require("./SunIcon.js");
+var _sunIconJsDefault = parcelHelpers.interopDefault(_sunIconJs);
+var _supportIconJs = require("./SupportIcon.js");
+var _supportIconJsDefault = parcelHelpers.interopDefault(_supportIconJs);
+var _switchHorizontalIconJs = require("./SwitchHorizontalIcon.js");
+var _switchHorizontalIconJsDefault = parcelHelpers.interopDefault(_switchHorizontalIconJs);
+var _switchVerticalIconJs = require("./SwitchVerticalIcon.js");
+var _switchVerticalIconJsDefault = parcelHelpers.interopDefault(_switchVerticalIconJs);
+var _tableIconJs = require("./TableIcon.js");
+var _tableIconJsDefault = parcelHelpers.interopDefault(_tableIconJs);
+var _tagIconJs = require("./TagIcon.js");
+var _tagIconJsDefault = parcelHelpers.interopDefault(_tagIconJs);
+var _templateIconJs = require("./TemplateIcon.js");
+var _templateIconJsDefault = parcelHelpers.interopDefault(_templateIconJs);
+var _terminalIconJs = require("./TerminalIcon.js");
+var _terminalIconJsDefault = parcelHelpers.interopDefault(_terminalIconJs);
+var _thumbDownIconJs = require("./ThumbDownIcon.js");
+var _thumbDownIconJsDefault = parcelHelpers.interopDefault(_thumbDownIconJs);
+var _thumbUpIconJs = require("./ThumbUpIcon.js");
+var _thumbUpIconJsDefault = parcelHelpers.interopDefault(_thumbUpIconJs);
+var _ticketIconJs = require("./TicketIcon.js");
+var _ticketIconJsDefault = parcelHelpers.interopDefault(_ticketIconJs);
+var _translateIconJs = require("./TranslateIcon.js");
+var _translateIconJsDefault = parcelHelpers.interopDefault(_translateIconJs);
+var _trashIconJs = require("./TrashIcon.js");
+var _trashIconJsDefault = parcelHelpers.interopDefault(_trashIconJs);
+var _trendingDownIconJs = require("./TrendingDownIcon.js");
+var _trendingDownIconJsDefault = parcelHelpers.interopDefault(_trendingDownIconJs);
+var _trendingUpIconJs = require("./TrendingUpIcon.js");
+var _trendingUpIconJsDefault = parcelHelpers.interopDefault(_trendingUpIconJs);
+var _truckIconJs = require("./TruckIcon.js");
+var _truckIconJsDefault = parcelHelpers.interopDefault(_truckIconJs);
+var _uploadIconJs = require("./UploadIcon.js");
+var _uploadIconJsDefault = parcelHelpers.interopDefault(_uploadIconJs);
+var _userAddIconJs = require("./UserAddIcon.js");
+var _userAddIconJsDefault = parcelHelpers.interopDefault(_userAddIconJs);
+var _userCircleIconJs = require("./UserCircleIcon.js");
+var _userCircleIconJsDefault = parcelHelpers.interopDefault(_userCircleIconJs);
+var _userGroupIconJs = require("./UserGroupIcon.js");
+var _userGroupIconJsDefault = parcelHelpers.interopDefault(_userGroupIconJs);
+var _userRemoveIconJs = require("./UserRemoveIcon.js");
+var _userRemoveIconJsDefault = parcelHelpers.interopDefault(_userRemoveIconJs);
+var _userIconJs = require("./UserIcon.js");
+var _userIconJsDefault = parcelHelpers.interopDefault(_userIconJs);
+var _usersIconJs = require("./UsersIcon.js");
+var _usersIconJsDefault = parcelHelpers.interopDefault(_usersIconJs);
+var _variableIconJs = require("./VariableIcon.js");
+var _variableIconJsDefault = parcelHelpers.interopDefault(_variableIconJs);
+var _videoCameraIconJs = require("./VideoCameraIcon.js");
+var _videoCameraIconJsDefault = parcelHelpers.interopDefault(_videoCameraIconJs);
+var _viewBoardsIconJs = require("./ViewBoardsIcon.js");
+var _viewBoardsIconJsDefault = parcelHelpers.interopDefault(_viewBoardsIconJs);
+var _viewGridAddIconJs = require("./ViewGridAddIcon.js");
+var _viewGridAddIconJsDefault = parcelHelpers.interopDefault(_viewGridAddIconJs);
+var _viewGridIconJs = require("./ViewGridIcon.js");
+var _viewGridIconJsDefault = parcelHelpers.interopDefault(_viewGridIconJs);
+var _viewListIconJs = require("./ViewListIcon.js");
+var _viewListIconJsDefault = parcelHelpers.interopDefault(_viewListIconJs);
+var _volumeOffIconJs = require("./VolumeOffIcon.js");
+var _volumeOffIconJsDefault = parcelHelpers.interopDefault(_volumeOffIconJs);
+var _volumeUpIconJs = require("./VolumeUpIcon.js");
+var _volumeUpIconJsDefault = parcelHelpers.interopDefault(_volumeUpIconJs);
+var _wifiIconJs = require("./WifiIcon.js");
+var _wifiIconJsDefault = parcelHelpers.interopDefault(_wifiIconJs);
+var _xcircleIconJs = require("./XCircleIcon.js");
+var _xcircleIconJsDefault = parcelHelpers.interopDefault(_xcircleIconJs);
+var _xiconJs = require("./XIcon.js");
+var _xiconJsDefault = parcelHelpers.interopDefault(_xiconJs);
+var _zoomInIconJs = require("./ZoomInIcon.js");
+var _zoomInIconJsDefault = parcelHelpers.interopDefault(_zoomInIconJs);
+var _zoomOutIconJs = require("./ZoomOutIcon.js");
+var _zoomOutIconJsDefault = parcelHelpers.interopDefault(_zoomOutIconJs);
+
+},{"./AcademicCapIcon.js":"l2ZB1","./AdjustmentsIcon.js":"kbRSO","./AnnotationIcon.js":"6mzcv","./ArchiveIcon.js":"4yYrj","./ArrowCircleDownIcon.js":"cQSKJ","./ArrowCircleLeftIcon.js":"6zt50","./ArrowCircleRightIcon.js":"9MVGE","./ArrowCircleUpIcon.js":"jDJPo","./ArrowDownIcon.js":"8FPd9","./ArrowLeftIcon.js":"lL38E","./ArrowNarrowDownIcon.js":"5whgG","./ArrowNarrowLeftIcon.js":"9x13t","./ArrowNarrowRightIcon.js":"6kYed","./ArrowNarrowUpIcon.js":"aCCNn","./ArrowRightIcon.js":"j8KWT","./ArrowSmDownIcon.js":"84i0F","./ArrowSmLeftIcon.js":"cYNKg","./ArrowSmRightIcon.js":"7hVkv","./ArrowSmUpIcon.js":"8YY7f","./ArrowUpIcon.js":"78tF9","./ArrowsExpandIcon.js":"DUk15","./AtSymbolIcon.js":"8OE9p","./BackspaceIcon.js":"8BNEl","./BadgeCheckIcon.js":"7uLlE","./BanIcon.js":"4ZPRb","./BeakerIcon.js":"agScB","./BellIcon.js":"3fVqm","./BookOpenIcon.js":"43vZa","./BookmarkAltIcon.js":"2dXqS","./BookmarkIcon.js":"haybc","./BriefcaseIcon.js":"hguKL","./CakeIcon.js":"5Vqfw","./CalculatorIcon.js":"5w9pe","./CalendarIcon.js":"eNSry","./CameraIcon.js":"5s1GT","./CashIcon.js":"ccz2M","./ChartBarIcon.js":"93pjt","./ChartPieIcon.js":"66Bbr","./ChartSquareBarIcon.js":"jVKJY","./ChatAlt2Icon.js":"aHHnu","./ChatAltIcon.js":"jUwib","./ChatIcon.js":"hymO1","./CheckCircleIcon.js":"EVRcw","./CheckIcon.js":"i3N9y","./ChevronDoubleDownIcon.js":"4qhgC","./ChevronDoubleLeftIcon.js":"lvgnT","./ChevronDoubleRightIcon.js":"dVJwZ","./ChevronDoubleUpIcon.js":"hiytx","./ChevronDownIcon.js":"79OxN","./ChevronLeftIcon.js":"23eCi","./ChevronRightIcon.js":"8oZnu","./ChevronUpIcon.js":"aHazh","./ChipIcon.js":"9uIdM","./ClipboardCheckIcon.js":"dnTS4","./ClipboardCopyIcon.js":"kEzSY","./ClipboardListIcon.js":"9FDNg","./ClipboardIcon.js":"6HQrQ","./ClockIcon.js":"4KGtg","./CloudDownloadIcon.js":"fym0i","./CloudUploadIcon.js":"2ieLM","./CloudIcon.js":"lyxFJ","./CodeIcon.js":"9j4HE","./CogIcon.js":"2l3TP","./CollectionIcon.js":"4jIvJ","./ColorSwatchIcon.js":"4eGZA","./CreditCardIcon.js":"eFnoP","./CubeTransparentIcon.js":"4ppZb","./CubeIcon.js":"i6tP4","./CurrencyBangladeshiIcon.js":"78t3A","./CurrencyDollarIcon.js":"4sbrV","./CurrencyEuroIcon.js":"uDWmt","./CurrencyPoundIcon.js":"24ira","./CurrencyRupeeIcon.js":"3pXON","./CurrencyYenIcon.js":"xYUg0","./CursorClickIcon.js":"heAEt","./DatabaseIcon.js":"hiG8e","./DesktopComputerIcon.js":"2fLml","./DeviceMobileIcon.js":"1uDeX","./DeviceTabletIcon.js":"dm7sF","./DocumentAddIcon.js":"aV8ww","./DocumentDownloadIcon.js":"cqKoR","./DocumentDuplicateIcon.js":"aXxK5","./DocumentRemoveIcon.js":"lHV97","./DocumentReportIcon.js":"dRUYI","./DocumentSearchIcon.js":"eRgck","./DocumentTextIcon.js":"jqIh3","./DocumentIcon.js":"diRGo","./DotsCircleHorizontalIcon.js":"lfkM4","./DotsHorizontalIcon.js":"48aaM","./DotsVerticalIcon.js":"5ZGGQ","./DownloadIcon.js":"5UaWl","./DuplicateIcon.js":"4b1wH","./EmojiHappyIcon.js":"fzYkW","./EmojiSadIcon.js":"3KllK","./ExclamationCircleIcon.js":"cZXlS","./ExclamationIcon.js":"imoaq","./ExternalLinkIcon.js":"aJ97p","./EyeOffIcon.js":"6LFI2","./EyeIcon.js":"fITQt","./FastForwardIcon.js":"8JW6R","./FilmIcon.js":"l45iy","./FilterIcon.js":"6HQlB","./FingerPrintIcon.js":"515Tc","./FireIcon.js":"ebQaD","./FlagIcon.js":"70Txb","./FolderAddIcon.js":"14O2q","./FolderDownloadIcon.js":"1dKmi","./FolderOpenIcon.js":"3sLcV","./FolderRemoveIcon.js":"4q945","./FolderIcon.js":"8IVzW","./GiftIcon.js":"ikjRN","./GlobeAltIcon.js":"gZFAt","./GlobeIcon.js":"4ciFv","./HandIcon.js":"jnU6r","./HashtagIcon.js":"jJrU1","./HeartIcon.js":"j8bWQ","./HomeIcon.js":"8VNq1","./IdentificationIcon.js":"jRM9k","./InboxInIcon.js":"5SFCH","./InboxIcon.js":"8syZ4","./InformationCircleIcon.js":"dl3Xj","./KeyIcon.js":"aLCTc","./LibraryIcon.js":"dnFTH","./LightBulbIcon.js":"jR1kc","./LightningBoltIcon.js":"koktZ","./LinkIcon.js":"gND4t","./LocationMarkerIcon.js":"7xkSs","./LockClosedIcon.js":"fd8u6","./LockOpenIcon.js":"9q8t1","./LoginIcon.js":"2i3FO","./LogoutIcon.js":"k1gzR","./MailOpenIcon.js":"j2JXS","./MailIcon.js":"cipLa","./MapIcon.js":"4hyfn","./MenuAlt1Icon.js":"bSq15","./MenuAlt2Icon.js":"2naqY","./MenuAlt3Icon.js":"3T51D","./MenuAlt4Icon.js":"gldDD","./MenuIcon.js":"FuNNN","./MicrophoneIcon.js":"7IVsS","./MinusCircleIcon.js":"4Bmd9","./MinusSmIcon.js":"jPntt","./MinusIcon.js":"fNCZr","./MoonIcon.js":"9EWNB","./MusicNoteIcon.js":"3ffq1","./NewspaperIcon.js":"hKvfC","./OfficeBuildingIcon.js":"6ay0e","./PaperAirplaneIcon.js":"9ncfW","./PaperClipIcon.js":"heo1P","./PauseIcon.js":"hqBl0","./PencilAltIcon.js":"7gD7I","./PencilIcon.js":"6hNoi","./PhoneIncomingIcon.js":"lmbcK","./PhoneMissedCallIcon.js":"76arF","./PhoneOutgoingIcon.js":"JDWbd","./PhoneIcon.js":"4lfHQ","./PhotographIcon.js":"kXip2","./PlayIcon.js":"8odCt","./PlusCircleIcon.js":"1QSDO","./PlusSmIcon.js":"ecTlS","./PlusIcon.js":"8It9y","./PresentationChartBarIcon.js":"hMq6M","./PresentationChartLineIcon.js":"2DwHx","./PrinterIcon.js":"3tC7Q","./PuzzleIcon.js":"e8yfI","./QrcodeIcon.js":"82MEN","./QuestionMarkCircleIcon.js":"9Ij43","./ReceiptRefundIcon.js":"j5jor","./ReceiptTaxIcon.js":"7BCO3","./RefreshIcon.js":"3ZNl6","./ReplyIcon.js":"ciasD","./RewindIcon.js":"9zsKd","./RssIcon.js":"gyove","./SaveAsIcon.js":"5tDvK","./SaveIcon.js":"clKDj","./ScaleIcon.js":"2fATD","./ScissorsIcon.js":"cMIFx","./SearchCircleIcon.js":"MoU1y","./SearchIcon.js":"9yJ9r","./SelectorIcon.js":"jL0JO","./ServerIcon.js":"7jO62","./ShareIcon.js":"86Cka","./ShieldCheckIcon.js":"SZzYV","./ShieldExclamationIcon.js":"3vx0L","./ShoppingBagIcon.js":"9QJST","./ShoppingCartIcon.js":"3kYuj","./SortAscendingIcon.js":"ltwhr","./SortDescendingIcon.js":"cWvFd","./SparklesIcon.js":"3JXT8","./SpeakerphoneIcon.js":"aA11y","./StarIcon.js":"kqG4W","./StatusOfflineIcon.js":"kQPr4","./StatusOnlineIcon.js":"aqRAg","./StopIcon.js":"3ihqb","./SunIcon.js":"c3TD1","./SupportIcon.js":"lzHRS","./SwitchHorizontalIcon.js":"dEssL","./SwitchVerticalIcon.js":"aKnlb","./TableIcon.js":"lQBVU","./TagIcon.js":"iXVJ9","./TemplateIcon.js":"ihzFg","./TerminalIcon.js":"6EthO","./ThumbDownIcon.js":"kBNPq","./ThumbUpIcon.js":"2iZso","./TicketIcon.js":"6Ltq2","./TranslateIcon.js":"i4ez1","./TrashIcon.js":"9rJyK","./TrendingDownIcon.js":"eQ0PI","./TrendingUpIcon.js":"dg3I8","./TruckIcon.js":"2Npzr","./UploadIcon.js":"k7S5h","./UserAddIcon.js":"8yaqq","./UserCircleIcon.js":"isPjX","./UserGroupIcon.js":"8P78S","./UserRemoveIcon.js":"9JVGQ","./UserIcon.js":"bowzP","./UsersIcon.js":"dDTpU","./VariableIcon.js":"aUqrt","./VideoCameraIcon.js":"7o0VW","./ViewBoardsIcon.js":"hNozl","./ViewGridAddIcon.js":"3LvQ1","./ViewGridIcon.js":"jglGe","./ViewListIcon.js":"ePxTd","./VolumeOffIcon.js":"jV8Mb","./VolumeUpIcon.js":"dAftR","./WifiIcon.js":"fX3Bu","./XCircleIcon.js":"79Uyg","./XIcon.js":"2mCSw","./ZoomInIcon.js":"bfHWC","./ZoomOutIcon.js":"14kJ8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l2ZB1":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function AcademicCapIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        d: "M12 14l9-5-9-5-9 5 9 5z"
+    }), /*#__PURE__*/ _react.createElement("path", {
+        d: "M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+    }), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+    }));
+}
+const ForwardRef = _react.forwardRef(AcademicCapIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kbRSO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function AdjustmentsIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+    }));
+}
+const ForwardRef = _react.forwardRef(AdjustmentsIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6mzcv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function AnnotationIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+    }));
+}
+const ForwardRef = _react.forwardRef(AnnotationIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4yYrj":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArchiveIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArchiveIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cQSKJ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArrowCircleDownIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArrowCircleDownIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6zt50":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArrowCircleLeftIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArrowCircleLeftIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9MVGE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArrowCircleRightIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArrowCircleRightIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jDJPo":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArrowCircleUpIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArrowCircleUpIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8FPd9":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArrowDownIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M19 14l-7 7m0 0l-7-7m7 7V3"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArrowDownIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lL38E":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArrowLeftIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M10 19l-7-7m0 0l7-7m-7 7h18"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArrowLeftIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5whgG":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArrowNarrowDownIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M16 17l-4 4m0 0l-4-4m4 4V3"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArrowNarrowDownIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9x13t":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArrowNarrowLeftIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M7 16l-4-4m0 0l4-4m-4 4h18"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArrowNarrowLeftIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6kYed":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArrowNarrowRightIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M17 8l4 4m0 0l-4 4m4-4H3"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArrowNarrowRightIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aCCNn":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArrowNarrowUpIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8 7l4-4m0 0l4 4m-4-4v18"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArrowNarrowUpIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j8KWT":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArrowRightIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M14 5l7 7m0 0l-7 7m7-7H3"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArrowRightIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"84i0F":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArrowSmDownIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M17 13l-5 5m0 0l-5-5m5 5V6"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArrowSmDownIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cYNKg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArrowSmLeftIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M11 17l-5-5m0 0l5-5m-5 5h12"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArrowSmLeftIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7hVkv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArrowSmRightIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M13 7l5 5m0 0l-5 5m5-5H6"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArrowSmRightIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8YY7f":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArrowSmUpIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M7 11l5-5m0 0l5 5m-5-5v12"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArrowSmUpIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"78tF9":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArrowUpIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M5 10l7-7m0 0l7 7m-7-7v18"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArrowUpIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"DUk15":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ArrowsExpandIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
+    }));
+}
+const ForwardRef = _react.forwardRef(ArrowsExpandIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8OE9p":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function AtSymbolIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+    }));
+}
+const ForwardRef = _react.forwardRef(AtSymbolIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8BNEl":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function BackspaceIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z"
+    }));
+}
+const ForwardRef = _react.forwardRef(BackspaceIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7uLlE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function BadgeCheckIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+    }));
+}
+const ForwardRef = _react.forwardRef(BadgeCheckIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4ZPRb":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function BanIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
+    }));
+}
+const ForwardRef = _react.forwardRef(BanIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"agScB":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function BeakerIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+    }));
+}
+const ForwardRef = _react.forwardRef(BeakerIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3fVqm":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function BellIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+    }));
+}
+const ForwardRef = _react.forwardRef(BellIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"43vZa":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function BookOpenIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+    }));
+}
+const ForwardRef = _react.forwardRef(BookOpenIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2dXqS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function BookmarkAltIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(BookmarkAltIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"haybc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function BookmarkIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+    }));
+}
+const ForwardRef = _react.forwardRef(BookmarkIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hguKL":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function BriefcaseIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(BriefcaseIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5Vqfw":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CakeIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"
+    }));
+}
+const ForwardRef = _react.forwardRef(CakeIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5w9pe":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CalculatorIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(CalculatorIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eNSry":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CalendarIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(CalendarIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5s1GT":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CameraIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+    }), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M15 13a3 3 0 11-6 0 3 3 0 016 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(CameraIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ccz2M":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CashIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(CashIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"93pjt":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ChartBarIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ChartBarIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"66Bbr":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ChartPieIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+    }), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ChartPieIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jVKJY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ChartSquareBarIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ChartSquareBarIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aHHnu":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ChatAlt2Icon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ChatAlt2Icon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jUwib":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ChatAltIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ChatAltIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hymO1":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ChatIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ChatIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"EVRcw":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CheckCircleIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(CheckCircleIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i3N9y":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CheckIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M5 13l4 4L19 7"
+    }));
+}
+const ForwardRef = _react.forwardRef(CheckIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4qhgC":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ChevronDoubleDownIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M19 13l-7 7-7-7m14-8l-7 7-7-7"
+    }));
+}
+const ForwardRef = _react.forwardRef(ChevronDoubleDownIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lvgnT":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ChevronDoubleLeftIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M11 19l-7-7 7-7m8 14l-7-7 7-7"
+    }));
+}
+const ForwardRef = _react.forwardRef(ChevronDoubleLeftIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dVJwZ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ChevronDoubleRightIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M13 5l7 7-7 7M5 5l7 7-7 7"
+    }));
+}
+const ForwardRef = _react.forwardRef(ChevronDoubleRightIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hiytx":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ChevronDoubleUpIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M5 11l7-7 7 7M5 19l7-7 7 7"
+    }));
+}
+const ForwardRef = _react.forwardRef(ChevronDoubleUpIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"79OxN":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ChevronDownIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M19 9l-7 7-7-7"
+    }));
+}
+const ForwardRef = _react.forwardRef(ChevronDownIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"23eCi":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ChevronLeftIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M15 19l-7-7 7-7"
+    }));
+}
+const ForwardRef = _react.forwardRef(ChevronLeftIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8oZnu":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ChevronRightIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 5l7 7-7 7"
+    }));
+}
+const ForwardRef = _react.forwardRef(ChevronRightIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aHazh":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ChevronUpIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M5 15l7-7 7 7"
+    }));
+}
+const ForwardRef = _react.forwardRef(ChevronUpIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9uIdM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ChipIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ChipIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dnTS4":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ClipboardCheckIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+    }));
+}
+const ForwardRef = _react.forwardRef(ClipboardCheckIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kEzSY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ClipboardCopyIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+    }));
+}
+const ForwardRef = _react.forwardRef(ClipboardCopyIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9FDNg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ClipboardListIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+    }));
+}
+const ForwardRef = _react.forwardRef(ClipboardListIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6HQrQ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ClipboardIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+    }));
+}
+const ForwardRef = _react.forwardRef(ClipboardIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4KGtg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ClockIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ClockIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fym0i":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CloudDownloadIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
+    }));
+}
+const ForwardRef = _react.forwardRef(CloudDownloadIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ieLM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CloudUploadIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+    }));
+}
+const ForwardRef = _react.forwardRef(CloudUploadIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lyxFJ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CloudIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+    }));
+}
+const ForwardRef = _react.forwardRef(CloudIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9j4HE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CodeIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+    }));
+}
+const ForwardRef = _react.forwardRef(CodeIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2l3TP":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CogIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+    }), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(CogIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4jIvJ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CollectionIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+    }));
+}
+const ForwardRef = _react.forwardRef(CollectionIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4eGZA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ColorSwatchIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+    }));
+}
+const ForwardRef = _react.forwardRef(ColorSwatchIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eFnoP":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CreditCardIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+    }));
+}
+const ForwardRef = _react.forwardRef(CreditCardIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4ppZb":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CubeTransparentIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"
+    }));
+}
+const ForwardRef = _react.forwardRef(CubeTransparentIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i6tP4":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CubeIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+    }));
+}
+const ForwardRef = _react.forwardRef(CubeIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"78t3A":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CurrencyBangladeshiIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M11 11V9a2 2 0 00-2-2m2 4v4a2 2 0 104 0v-1m-4-3H9m2 0h4m6 1a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(CurrencyBangladeshiIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4sbrV":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CurrencyDollarIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(CurrencyDollarIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"uDWmt":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CurrencyEuroIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M14.121 15.536c-1.171 1.952-3.07 1.952-4.242 0-1.172-1.953-1.172-5.119 0-7.072 1.171-1.952 3.07-1.952 4.242 0M8 10.5h4m-4 3h4m9-1.5a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(CurrencyEuroIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"24ira":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CurrencyPoundIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M15 9a2 2 0 10-4 0v5a2 2 0 01-2 2h6m-6-4h4m8 0a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(CurrencyPoundIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3pXON":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CurrencyRupeeIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 8h6m-5 0a3 3 0 110 6H9l3 3m-3-6h6m6 1a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(CurrencyRupeeIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"xYUg0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CurrencyYenIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 8l3 5m0 0l3-5m-3 5v4m-3-5h6m-6 3h6m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(CurrencyYenIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"heAEt":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function CursorClickIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
+    }));
+}
+const ForwardRef = _react.forwardRef(CursorClickIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hiG8e":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function DatabaseIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
+    }));
+}
+const ForwardRef = _react.forwardRef(DatabaseIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2fLml":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function DesktopComputerIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(DesktopComputerIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1uDeX":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function DeviceMobileIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(DeviceMobileIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dm7sF":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function DeviceTabletIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(DeviceTabletIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aV8ww":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function DocumentAddIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(DocumentAddIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cqKoR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function DocumentDownloadIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(DocumentDownloadIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aXxK5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function DocumentDuplicateIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"
+    }));
+}
+const ForwardRef = _react.forwardRef(DocumentDuplicateIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lHV97":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function DocumentRemoveIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 13h6m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(DocumentRemoveIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dRUYI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function DocumentReportIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(DocumentReportIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eRgck":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function DocumentSearchIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z"
+    }));
+}
+const ForwardRef = _react.forwardRef(DocumentSearchIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jqIh3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function DocumentTextIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(DocumentTextIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"diRGo":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function DocumentIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(DocumentIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lfkM4":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function DotsCircleHorizontalIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(DotsCircleHorizontalIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"48aaM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function DotsHorizontalIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(DotsHorizontalIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5ZGGQ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function DotsVerticalIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(DotsVerticalIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5UaWl":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function DownloadIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+    }));
+}
+const ForwardRef = _react.forwardRef(DownloadIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4b1wH":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function DuplicateIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(DuplicateIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fzYkW":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function EmojiHappyIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(EmojiHappyIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3KllK":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function EmojiSadIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(EmojiSadIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cZXlS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ExclamationCircleIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ExclamationCircleIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"imoaq":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ExclamationIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ExclamationIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aJ97p":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ExternalLinkIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+    }));
+}
+const ForwardRef = _react.forwardRef(ExternalLinkIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6LFI2":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function EyeOffIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"
+    }));
+}
+const ForwardRef = _react.forwardRef(EyeOffIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fITQt":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function EyeIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+    }), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+    }));
+}
+const ForwardRef = _react.forwardRef(EyeIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8JW6R":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function FastForwardIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M11.933 12.8a1 1 0 000-1.6L6.6 7.2A1 1 0 005 8v8a1 1 0 001.6.8l5.333-4zM19.933 12.8a1 1 0 000-1.6l-5.333-4A1 1 0 0013 8v8a1 1 0 001.6.8l5.333-4z"
+    }));
+}
+const ForwardRef = _react.forwardRef(FastForwardIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l45iy":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function FilmIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"
+    }));
+}
+const ForwardRef = _react.forwardRef(FilmIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6HQlB":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function FilterIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
+    }));
+}
+const ForwardRef = _react.forwardRef(FilterIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"515Tc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function FingerPrintIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"
+    }));
+}
+const ForwardRef = _react.forwardRef(FingerPrintIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ebQaD":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function FireIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
+    }), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
+    }));
+}
+const ForwardRef = _react.forwardRef(FireIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"70Txb":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function FlagIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"
+    }));
+}
+const ForwardRef = _react.forwardRef(FlagIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"14O2q":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function FolderAddIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(FolderAddIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1dKmi":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function FolderDownloadIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(FolderDownloadIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3sLcV":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function FolderOpenIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(FolderOpenIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4q945":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function FolderRemoveIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 13h6M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(FolderRemoveIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8IVzW":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function FolderIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(FolderIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ikjRN":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function GiftIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"
+    }));
+}
+const ForwardRef = _react.forwardRef(GiftIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gZFAt":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function GlobeAltIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+    }));
+}
+const ForwardRef = _react.forwardRef(GlobeAltIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4ciFv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function GlobeIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(GlobeIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jnU6r":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function HandIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"
+    }));
+}
+const ForwardRef = _react.forwardRef(HandIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jJrU1":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function HashtagIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
+    }));
+}
+const ForwardRef = _react.forwardRef(HashtagIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j8bWQ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function HeartIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(HeartIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8VNq1":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function HomeIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+    }));
+}
+const ForwardRef = _react.forwardRef(HomeIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jRM9k":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function IdentificationIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"
+    }));
+}
+const ForwardRef = _react.forwardRef(IdentificationIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5SFCH":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function InboxInIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20"
+    }));
+}
+const ForwardRef = _react.forwardRef(InboxInIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8syZ4":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function InboxIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
+    }));
+}
+const ForwardRef = _react.forwardRef(InboxIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dl3Xj":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function InformationCircleIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(InformationCircleIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aLCTc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function KeyIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
+    }));
+}
+const ForwardRef = _react.forwardRef(KeyIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dnFTH":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function LibraryIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
+    }));
+}
+const ForwardRef = _react.forwardRef(LibraryIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jR1kc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function LightBulbIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+    }));
+}
+const ForwardRef = _react.forwardRef(LightBulbIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"koktZ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function LightningBoltIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M13 10V3L4 14h7v7l9-11h-7z"
+    }));
+}
+const ForwardRef = _react.forwardRef(LightningBoltIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gND4t":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function LinkIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+    }));
+}
+const ForwardRef = _react.forwardRef(LinkIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7xkSs":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function LocationMarkerIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+    }), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(LocationMarkerIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fd8u6":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function LockClosedIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+    }));
+}
+const ForwardRef = _react.forwardRef(LockClosedIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9q8t1":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function LockOpenIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(LockOpenIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2i3FO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function LoginIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+    }));
+}
+const ForwardRef = _react.forwardRef(LoginIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k1gzR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function LogoutIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+    }));
+}
+const ForwardRef = _react.forwardRef(LogoutIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j2JXS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function MailOpenIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76"
+    }));
+}
+const ForwardRef = _react.forwardRef(MailOpenIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cipLa":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function MailIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(MailIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4hyfn":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function MapIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+    }));
+}
+const ForwardRef = _react.forwardRef(MapIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bSq15":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function MenuAlt1Icon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M4 6h16M4 12h8m-8 6h16"
+    }));
+}
+const ForwardRef = _react.forwardRef(MenuAlt1Icon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2naqY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function MenuAlt2Icon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M4 6h16M4 12h16M4 18h7"
+    }));
+}
+const ForwardRef = _react.forwardRef(MenuAlt2Icon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3T51D":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function MenuAlt3Icon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M4 6h16M4 12h16m-7 6h7"
+    }));
+}
+const ForwardRef = _react.forwardRef(MenuAlt3Icon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gldDD":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function MenuAlt4Icon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M4 8h16M4 16h16"
+    }));
+}
+const ForwardRef = _react.forwardRef(MenuAlt4Icon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"FuNNN":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function MenuIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M4 6h16M4 12h16M4 18h16"
+    }));
+}
+const ForwardRef = _react.forwardRef(MenuIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7IVsS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function MicrophoneIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
+    }));
+}
+const ForwardRef = _react.forwardRef(MicrophoneIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4Bmd9":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function MinusCircleIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(MinusCircleIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jPntt":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function MinusSmIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M18 12H6"
+    }));
+}
+const ForwardRef = _react.forwardRef(MinusSmIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fNCZr":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function MinusIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M20 12H4"
+    }));
+}
+const ForwardRef = _react.forwardRef(MinusIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9EWNB":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function MoonIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+    }));
+}
+const ForwardRef = _react.forwardRef(MoonIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3ffq1":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function MusicNoteIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+    }));
+}
+const ForwardRef = _react.forwardRef(MusicNoteIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hKvfC":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function NewspaperIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+    }));
+}
+const ForwardRef = _react.forwardRef(NewspaperIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6ay0e":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function OfficeBuildingIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+    }));
+}
+const ForwardRef = _react.forwardRef(OfficeBuildingIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9ncfW":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PaperAirplaneIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+    }));
+}
+const ForwardRef = _react.forwardRef(PaperAirplaneIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"heo1P":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PaperClipIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"
+    }));
+}
+const ForwardRef = _react.forwardRef(PaperClipIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hqBl0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PauseIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(PauseIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7gD7I":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PencilAltIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+    }));
+}
+const ForwardRef = _react.forwardRef(PencilAltIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6hNoi":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PencilIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+    }));
+}
+const ForwardRef = _react.forwardRef(PencilIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lmbcK":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PhoneIncomingIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"
+    }));
+}
+const ForwardRef = _react.forwardRef(PhoneIncomingIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"76arF":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PhoneMissedCallIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M16 8l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"
+    }));
+}
+const ForwardRef = _react.forwardRef(PhoneMissedCallIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"JDWbd":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PhoneOutgoingIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M16 3h5m0 0v5m0-5l-6 6M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"
+    }));
+}
+const ForwardRef = _react.forwardRef(PhoneOutgoingIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4lfHQ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PhoneIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+    }));
+}
+const ForwardRef = _react.forwardRef(PhoneIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kXip2":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PhotographIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(PhotographIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8odCt":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PlayIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+    }), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(PlayIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1QSDO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PlusCircleIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(PlusCircleIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ecTlS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PlusSmIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 6v6m0 0v6m0-6h6m-6 0H6"
+    }));
+}
+const ForwardRef = _react.forwardRef(PlusSmIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8It9y":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PlusIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 4v16m8-8H4"
+    }));
+}
+const ForwardRef = _react.forwardRef(PlusIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hMq6M":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PresentationChartBarIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8 13v-1m4 1v-3m4 3V8M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
+    }));
+}
+const ForwardRef = _react.forwardRef(PresentationChartBarIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2DwHx":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PresentationChartLineIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
+    }));
+}
+const ForwardRef = _react.forwardRef(PresentationChartLineIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3tC7Q":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PrinterIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
+    }));
+}
+const ForwardRef = _react.forwardRef(PrinterIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e8yfI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function PuzzleIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
+    }));
+}
+const ForwardRef = _react.forwardRef(PuzzleIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"82MEN":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function QrcodeIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"
+    }));
+}
+const ForwardRef = _react.forwardRef(QrcodeIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Ij43":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function QuestionMarkCircleIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(QuestionMarkCircleIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j5jor":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ReceiptRefundIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M16 15v-1a4 4 0 00-4-4H8m0 0l3 3m-3-3l3-3m9 14V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16l4-2 4 2 4-2 4 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ReceiptRefundIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7BCO3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ReceiptTaxIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ReceiptTaxIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3ZNl6":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function RefreshIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+    }));
+}
+const ForwardRef = _react.forwardRef(RefreshIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ciasD":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ReplyIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"
+    }));
+}
+const ForwardRef = _react.forwardRef(ReplyIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9zsKd":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function RewindIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.333 4zM4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8l-5.334 4z"
+    }));
+}
+const ForwardRef = _react.forwardRef(RewindIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gyove":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function RssIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(RssIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5tDvK":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function SaveAsIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M17 16v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-7a2 2 0 012-2h2m3-4H9a2 2 0 00-2 2v7a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-1m-1 4l-3 3m0 0l-3-3m3 3V3"
+    }));
+}
+const ForwardRef = _react.forwardRef(SaveAsIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"clKDj":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function SaveIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"
+    }));
+}
+const ForwardRef = _react.forwardRef(SaveIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2fATD":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ScaleIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
+    }));
+}
+const ForwardRef = _react.forwardRef(ScaleIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cMIFx":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ScissorsIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ScissorsIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"MoU1y":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function SearchCircleIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(SearchCircleIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9yJ9r":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function SearchIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(SearchIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jL0JO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function SelectorIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8 9l4-4 4 4m0 6l-4 4-4-4"
+    }));
+}
+const ForwardRef = _react.forwardRef(SelectorIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7jO62":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ServerIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
+    }));
+}
+const ForwardRef = _react.forwardRef(ServerIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"86Cka":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ShareIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ShareIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"SZzYV":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ShieldCheckIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ShieldCheckIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3vx0L":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ShieldExclamationIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"
+    }));
+}
+const ForwardRef = _react.forwardRef(ShieldExclamationIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9QJST":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ShoppingBagIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ShoppingBagIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3kYuj":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ShoppingCartIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ShoppingCartIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ltwhr":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function SortAscendingIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"
+    }));
+}
+const ForwardRef = _react.forwardRef(SortAscendingIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cWvFd":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function SortDescendingIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"
+    }));
+}
+const ForwardRef = _react.forwardRef(SortDescendingIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3JXT8":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function SparklesIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+    }));
+}
+const ForwardRef = _react.forwardRef(SparklesIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aA11y":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function SpeakerphoneIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
+    }));
+}
+const ForwardRef = _react.forwardRef(SpeakerphoneIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kqG4W":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function StarIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+    }));
+}
+const ForwardRef = _react.forwardRef(StarIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kQPr4":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function StatusOfflineIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414m-1.414-1.414L3 3m8.293 8.293l1.414 1.414"
+    }));
+}
+const ForwardRef = _react.forwardRef(StatusOfflineIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aqRAg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function StatusOnlineIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M13 12a1 1 0 11-2 0 1 1 0 012 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(StatusOnlineIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3ihqb":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function StopIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    }), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"
+    }));
+}
+const ForwardRef = _react.forwardRef(StopIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c3TD1":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function SunIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(SunIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lzHRS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function SupportIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(SupportIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dEssL":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function SwitchHorizontalIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+    }));
+}
+const ForwardRef = _react.forwardRef(SwitchHorizontalIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aKnlb":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function SwitchVerticalIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"
+    }));
+}
+const ForwardRef = _react.forwardRef(SwitchVerticalIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lQBVU":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function TableIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(TableIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iXVJ9":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function TagIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
+    }));
+}
+const ForwardRef = _react.forwardRef(TagIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ihzFg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function TemplateIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+    }));
+}
+const ForwardRef = _react.forwardRef(TemplateIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6EthO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function TerminalIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(TerminalIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kBNPq":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ThumbDownIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M10 14H5.236a2 2 0 01-1.789-2.894l3.5-7A2 2 0 018.736 3h4.018a2 2 0 01.485.06l3.76.94m-7 10v5a2 2 0 002 2h.096c.5 0 .905-.405.905-.904 0-.715.211-1.413.608-2.008L17 13V4m-7 10h2m5-10h2a2 2 0 012 2v6a2 2 0 01-2 2h-2.5"
+    }));
+}
+const ForwardRef = _react.forwardRef(ThumbDownIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2iZso":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ThumbUpIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
+    }));
+}
+const ForwardRef = _react.forwardRef(ThumbUpIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6Ltq2":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function TicketIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"
+    }));
+}
+const ForwardRef = _react.forwardRef(TicketIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i4ez1":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function TranslateIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+    }));
+}
+const ForwardRef = _react.forwardRef(TranslateIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9rJyK":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function TrashIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+    }));
+}
+const ForwardRef = _react.forwardRef(TrashIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eQ0PI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function TrendingDownIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
+    }));
+}
+const ForwardRef = _react.forwardRef(TrendingDownIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dg3I8":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function TrendingUpIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+    }));
+}
+const ForwardRef = _react.forwardRef(TrendingUpIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2Npzr":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function TruckIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        d: "M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"
+    }), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"
+    }));
+}
+const ForwardRef = _react.forwardRef(TruckIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k7S5h":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function UploadIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+    }));
+}
+const ForwardRef = _react.forwardRef(UploadIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8yaqq":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function UserAddIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+    }));
+}
+const ForwardRef = _react.forwardRef(UserAddIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"isPjX":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function UserCircleIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(UserCircleIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8P78S":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function UserGroupIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(UserGroupIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9JVGQ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function UserRemoveIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M13 7a4 4 0 11-8 0 4 4 0 018 0zM9 14a6 6 0 00-6 6v1h12v-1a6 6 0 00-6-6zM21 12h-6"
+    }));
+}
+const ForwardRef = _react.forwardRef(UserRemoveIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bowzP":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function UserIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+    }));
+}
+const ForwardRef = _react.forwardRef(UserIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dDTpU":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function UsersIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(UsersIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aUqrt":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function VariableIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M4.871 4A17.926 17.926 0 003 12c0 2.874.673 5.59 1.871 8m14.13 0a17.926 17.926 0 001.87-8c0-2.874-.673-5.59-1.87-8M9 9h1.246a1 1 0 01.961.725l1.586 5.55a1 1 0 00.961.725H15m1-7h-.08a2 2 0 00-1.519.698L9.6 15.302A2 2 0 018.08 16H8"
+    }));
+}
+const ForwardRef = _react.forwardRef(VariableIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7o0VW":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function VideoCameraIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(VideoCameraIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hNozl":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ViewBoardsIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"
+    }));
+}
+const ForwardRef = _react.forwardRef(ViewBoardsIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3LvQ1":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ViewGridAddIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ViewGridAddIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jglGe":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ViewGridIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+    }));
+}
+const ForwardRef = _react.forwardRef(ViewGridIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ePxTd":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ViewListIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M4 6h16M4 10h16M4 14h16M4 18h16"
+    }));
+}
+const ForwardRef = _react.forwardRef(ViewListIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jV8Mb":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function VolumeOffIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z",
+        clipRule: "evenodd"
+    }), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"
+    }));
+}
+const ForwardRef = _react.forwardRef(VolumeOffIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dAftR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function VolumeUpIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+    }));
+}
+const ForwardRef = _react.forwardRef(VolumeUpIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fX3Bu":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function WifiIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"
+    }));
+}
+const ForwardRef = _react.forwardRef(WifiIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"79Uyg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function XCircleIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+}
+const ForwardRef = _react.forwardRef(XCircleIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2mCSw":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function XIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M6 18L18 6M6 6l12 12"
+    }));
+}
+const ForwardRef = _react.forwardRef(XIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bfHWC":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ZoomInIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+    }));
+}
+const ForwardRef = _react.forwardRef(ZoomInIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"14kJ8":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function ZoomOutIcon(props, svgRef) {
+    return /*#__PURE__*/ _react.createElement("svg", Object.assign({
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        strokeWidth: 2,
+        stroke: "currentColor",
+        "aria-hidden": "true",
+        ref: svgRef
+    }, props), /*#__PURE__*/ _react.createElement("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        d: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7"
+    }));
+}
+const ForwardRef = _react.forwardRef(ZoomOutIcon);
+exports.default = ForwardRef;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["farZc","1xC6H","8lqZg"], "8lqZg", "parcelRequire7890")
 
 //# sourceMappingURL=index.975ef6c8.js.map
