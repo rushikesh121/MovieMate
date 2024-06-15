@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import KEY from "../src/utils";
 import ShowData from "./ShowData";
+import Shim from "./Shim";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -21,7 +22,9 @@ export default function Show() {
   useEffect(() => {
     GetData();
   }, [location]);
-  return (
+   if(movie.length===0) 
+   <Shim/>
+   else return (
     <div>
       <h1 className="text-center font-semibold text-4xl text-slate-300 uppercase">
         {id}

@@ -3,11 +3,13 @@ import { useParams } from "react-router-dom";
 import ShowData from "./ShowData";
 import { imageBaseUrl } from "../src/utils";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 export default function MovieInfo() {
   const { id } = useParams();
   const [movie, setMovie] = useState([]);
   const [g, sG] = useState([]);
   const [recm,setrecm]=useState([]);
+  const location=useLocation();
 
   async function getRecomm()
   {
@@ -24,11 +26,11 @@ export default function MovieInfo() {
     console.log(js);
   }
 
-
+  
   useEffect(() => {
     getMovieInfo();
     getRecomm();
-  }, []);
+  }, [location]);
 
   return (
     <div>
