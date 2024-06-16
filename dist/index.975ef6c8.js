@@ -2980,17 +2980,17 @@ function App() {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
                 fileName: "src/index.js",
-                lineNumber: 16,
+                lineNumber: 15,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
                 fileName: "src/index.js",
-                lineNumber: 17,
+                lineNumber: 16,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _footerDefault.default), {}, void 0, false, {
                 fileName: "src/index.js",
-                lineNumber: 18,
+                lineNumber: 17,
                 columnNumber: 7
             }, this)
         ]
@@ -3002,7 +3002,7 @@ const Approuter = (0, _reactRouterDom.createBrowserRouter)([
         path: "/",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
             fileName: "src/index.js",
-            lineNumber: 26,
+            lineNumber: 25,
             columnNumber: 21
         }, undefined),
         children: [
@@ -3010,7 +3010,7 @@ const Approuter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyDefault.default), {}, void 0, false, {
                     fileName: "src/index.js",
-                    lineNumber: 30,
+                    lineNumber: 29,
                     columnNumber: 29
                 }, undefined)
             },
@@ -3018,7 +3018,7 @@ const Approuter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/movie_detail/:id",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchInfoDefault.default), {}, void 0, false, {
                     fileName: "src/index.js",
-                    lineNumber: 34,
+                    lineNumber: 33,
                     columnNumber: 27
                 }, undefined)
             },
@@ -3026,7 +3026,7 @@ const Approuter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/about",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _aboutDefault.default), {}, void 0, false, {
                     fileName: "src/index.js",
-                    lineNumber: 38,
+                    lineNumber: 37,
                     columnNumber: 29
                 }, undefined)
             },
@@ -3034,7 +3034,7 @@ const Approuter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/detail/:id",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieInfoDefault.default), {}, void 0, false, {
                     fileName: "src/index.js",
-                    lineNumber: 42,
+                    lineNumber: 41,
                     columnNumber: 29
                 }, undefined)
             },
@@ -3042,7 +3042,7 @@ const Approuter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/result/:id",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _showDefault.default), {}, void 0, false, {
                     fileName: "src/index.js",
-                    lineNumber: 46,
+                    lineNumber: 45,
                     columnNumber: 29
                 }, undefined)
             }
@@ -3054,7 +3054,7 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.RouterP
     router: Approuter
 }, void 0, false, {
     fileName: "src/index.js",
-    lineNumber: 54,
+    lineNumber: 53,
     columnNumber: 15
 }, undefined));
 var _c;
@@ -34610,7 +34610,7 @@ function Header() {
     _s();
     const [search, setSearch] = (0, _react.useState)("");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: " text-white flex justify-between  items-center shadow-md shad shadow-black px-[40px] h-[80px] rounded-md w-ful sticky top-0 z-50 bg-opacity-80 backdrop-blur-lg ",
+        className: "      text-white flex justify-between  items-center shadow-md shad shadow-black px-[40px] h-[80px] rounded-md w-ful sticky top-0 z-50 bg-opacity-80 backdrop-blur-lg ",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
                 href: "/",
@@ -34621,17 +34621,17 @@ function Header() {
                         children: "moviemate"
                     }, void 0, false, {
                         fileName: "components/Header.js",
-                        lineNumber: 10,
-                        columnNumber: 19
+                        lineNumber: 15,
+                        columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "components/Header.js",
-                lineNumber: 10,
-                columnNumber: 6
+                lineNumber: 13,
+                columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                className: "flex flex-row gap-7 ",
+                className: "flex flex-row gap-7 my-4 invisible md:visible",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: "/",
@@ -34640,12 +34640,12 @@ function Header() {
                             children: "Home"
                         }, void 0, false, {
                             fileName: "components/Header.js",
-                            lineNumber: 14,
+                            lineNumber: 21,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "components/Header.js",
-                        lineNumber: 13,
+                        lineNumber: 20,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34655,12 +34655,12 @@ function Header() {
                             children: "Popular"
                         }, void 0, false, {
                             fileName: "components/Header.js",
-                            lineNumber: 19,
+                            lineNumber: 26,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "components/Header.js",
-                        lineNumber: 18,
+                        lineNumber: 25,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34670,12 +34670,12 @@ function Header() {
                             children: "Now Playing"
                         }, void 0, false, {
                             fileName: "components/Header.js",
-                            lineNumber: 24,
+                            lineNumber: 31,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "components/Header.js",
-                        lineNumber: 23,
+                        lineNumber: 30,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34685,22 +34685,22 @@ function Header() {
                             children: "About Me"
                         }, void 0, false, {
                             fileName: "components/Header.js",
-                            lineNumber: 29,
+                            lineNumber: 36,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "components/Header.js",
-                        lineNumber: 28,
+                        lineNumber: 35,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "components/Header.js",
-                lineNumber: 12,
+                lineNumber: 19,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "",
+                className: "flex items-center gap-2 invisible md:visible",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "search",
@@ -34709,10 +34709,10 @@ function Header() {
                             setSearch(e.target.value);
                         },
                         placeholder: "Type Movie Name....",
-                        className: "border-l-slate-800 border py-[12px] px-5 rounded-xl mr-1 text-black"
+                        className: "md:border-l-slate-800 md:border md:py-[12px] md:px-5 md:rounded-xl md:mr-1 md:text-black"
                     }, void 0, false, {
                         fileName: "components/Header.js",
-                        lineNumber: 35,
+                        lineNumber: 42,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34723,18 +34723,18 @@ function Header() {
                             children: "Search"
                         }, void 0, false, {
                             fileName: "components/Header.js",
-                            lineNumber: 45,
-                            columnNumber: 9
+                            lineNumber: 52,
+                            columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "components/Header.js",
-                        lineNumber: 44,
+                        lineNumber: 51,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "components/Header.js",
-                lineNumber: 34,
+                lineNumber: 41,
                 columnNumber: 7
             }, this)
         ]
@@ -34744,7 +34744,7 @@ function Header() {
         columnNumber: 5
     }, this);
 }
-_s(Header, "L4/MLLBLkMQ9+mwadT2sxP1Y99U=");
+_s(Header, "42GASUL8pX2/N6Oh5HTh0GvQEF0=");
 _c = Header;
 var _c;
 $RefreshReg$(_c, "Header");
@@ -34793,7 +34793,7 @@ function Body() {
         GetData();
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "",
+        className: "min-w-full",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                 className: "text-center font-semibold text-4xl text-slate-300 uppercase",
@@ -34804,7 +34804,7 @@ function Body() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "flex gap-2 flex-wrap justify-center",
+                className: "md:flex md:gap-2 md:flex-wrap md:justify-center flex flex-wrap justify-center",
                 children: movie.map((data)=>{
                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: `/detail/${data.id}`,

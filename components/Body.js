@@ -27,11 +27,11 @@ export default function Body() {
 
   
   return (
-    <div className="">
+    <div className="min-w-full">
       <h1 className="text-center font-semibold text-4xl text-slate-300 uppercase">
        Discover
       </h1>
-      <div className="flex gap-2 flex-wrap justify-center">
+      <div className="md:flex md:gap-2 md:flex-wrap md:justify-center flex flex-wrap justify-center">
         {movie.map((data) => {
           return (
             <Link to={`/detail/${data.id}`}>
