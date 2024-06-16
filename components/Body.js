@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react"
-import KEY from "../src/utils"
-import ShowData from "./ShowData"
-import { Link } from "react-router-dom"
-import { useLocation } from "react-router-dom"
-import Shim from "../components/Shim"
+import React, { useEffect, useState } from "react";
+import KEY from "../src/utils";
+import ShowData from "./ShowData";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import Shim from "../components/Shim";
 export default function Body() {
   const [movie, setMovie] = useState([]);
   const location = useLocation();
