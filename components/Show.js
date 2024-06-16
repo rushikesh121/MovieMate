@@ -1,10 +1,10 @@
-import React from "react"
-import { useParams } from "react-router-dom"
-import KEY from "../src/utils"
-import ShowData from "./ShowData"
-import Shim from "./Shim"
-import { Link } from "react-router-dom"
-import { useLocation } from "react-router-dom"
+import React from "react";
+import { useParams } from "react-router-dom";
+import KEY from "../src/utils";
+import ShowData from "./ShowData";
+import Shim from "./Shim";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 export default function Show() {
   const [movie, setMovie] = useState([]);
