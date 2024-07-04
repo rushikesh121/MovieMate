@@ -14,6 +14,7 @@ export default function Body() {
       );
       const da = await data.json();
       setMovie(da.results);
+      console.log(da);
     } catch (error) {
       console.log(error)
     }

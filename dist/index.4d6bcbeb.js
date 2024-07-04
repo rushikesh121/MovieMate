@@ -142,14 +142,14 @@
       this[globalName] = mainExports;
     }
   }
-})({"farZc":[function(require,module,exports) {
+})({"anvqh":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
 var HMR_USE_SSE = false;
-module.bundle.HMR_BUNDLE_ID = "890e741a975ef6c8";
+module.bundle.HMR_BUNDLE_ID = "bed887d14d6bcbeb";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, HMR_USE_SSE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -2944,11 +2944,11 @@ process.umask = function() {
     return 0;
 };
 
-},{}],"8lqZg":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$20e5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{}],"gLLPy":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$346a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$20e5.prelude(module);
+$parcel$ReactRefreshHelpers$346a.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -2979,17 +2979,17 @@ function App() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
-                fileName: "src/index.js",
+                fileName: "src/main.js",
                 lineNumber: 15,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
-                fileName: "src/index.js",
+                fileName: "src/main.js",
                 lineNumber: 16,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _footerDefault.default), {}, void 0, false, {
-                fileName: "src/index.js",
+                fileName: "src/main.js",
                 lineNumber: 17,
                 columnNumber: 7
             }, this)
@@ -3001,7 +3001,7 @@ const Approuter = (0, _reactRouterDom.createBrowserRouter)([
     {
         path: "/",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
-            fileName: "src/index.js",
+            fileName: "src/main.js",
             lineNumber: 25,
             columnNumber: 21
         }, undefined),
@@ -3009,7 +3009,7 @@ const Approuter = (0, _reactRouterDom.createBrowserRouter)([
             {
                 path: "/",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyDefault.default), {}, void 0, false, {
-                    fileName: "src/index.js",
+                    fileName: "src/main.js",
                     lineNumber: 29,
                     columnNumber: 29
                 }, undefined)
@@ -3017,7 +3017,7 @@ const Approuter = (0, _reactRouterDom.createBrowserRouter)([
             {
                 path: "/movie_detail/:id",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchInfoDefault.default), {}, void 0, false, {
-                    fileName: "src/index.js",
+                    fileName: "src/main.js",
                     lineNumber: 33,
                     columnNumber: 27
                 }, undefined)
@@ -3025,7 +3025,7 @@ const Approuter = (0, _reactRouterDom.createBrowserRouter)([
             {
                 path: "/about",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _aboutDefault.default), {}, void 0, false, {
-                    fileName: "src/index.js",
+                    fileName: "src/main.js",
                     lineNumber: 37,
                     columnNumber: 29
                 }, undefined)
@@ -3033,7 +3033,7 @@ const Approuter = (0, _reactRouterDom.createBrowserRouter)([
             {
                 path: "/detail/:id",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieInfoDefault.default), {}, void 0, false, {
-                    fileName: "src/index.js",
+                    fileName: "src/main.js",
                     lineNumber: 41,
                     columnNumber: 29
                 }, undefined)
@@ -3041,7 +3041,7 @@ const Approuter = (0, _reactRouterDom.createBrowserRouter)([
             {
                 path: "/result/:id",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _showDefault.default), {}, void 0, false, {
-                    fileName: "src/index.js",
+                    fileName: "src/main.js",
                     lineNumber: 45,
                     columnNumber: 29
                 }, undefined)
@@ -3053,14 +3053,14 @@ const root = (0, _clientDefault.default).createRoot(document.getElementById("roo
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.RouterProvider), {
     router: Approuter
 }, void 0, false, {
-    fileName: "src/index.js",
+    fileName: "src/main.js",
     lineNumber: 53,
     columnNumber: 15
 }, undefined));
 var _c;
 $RefreshReg$(_c, "App");
 
-  $parcel$ReactRefreshHelpers$20e5.postlude(module);
+  $parcel$ReactRefreshHelpers$346a.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -42652,6 +42652,6 @@ function ZoomOutIcon(props, svgRef) {
 const ForwardRef = _react.forwardRef(ZoomOutIcon);
 exports.default = ForwardRef;
 
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["farZc","1xC6H","8lqZg"], "8lqZg", "parcelRequire7890")
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["anvqh","1xC6H","gLLPy"], "gLLPy", "parcelRequire7890")
 
-//# sourceMappingURL=index.975ef6c8.js.map
+//# sourceMappingURL=index.4d6bcbeb.js.map
