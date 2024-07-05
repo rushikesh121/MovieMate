@@ -1,4 +1,4 @@
-overview:-
+OVERVIEW:-
 MovieMate is a movie recommendation system developed using React.js and Tailwind CSS, leveraging the TMDB API to fetch movie data. The application features a home page displaying popular and trending movies, a search functionality to find movies by title, and detailed movie pages with plot summaries, release dates, and ratings. It also provides personalized movie recommendations based on user interactions. With its responsive design ensured by Tailwind CSS
 
 
@@ -8,7 +8,6 @@ MovieMate is a movie recommendation system developed using React.js and Tailwind
 Movie Suggest
 Discover New Movies
 Check Out Trending Movies
-View Movie By Cast and Vice Versa
 View Similar Movies
 Search Movies
 Also TV Shows
