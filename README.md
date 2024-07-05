@@ -11,7 +11,11 @@ Search Movies
 Also TV Shows
 
 *********Project ScreenShots******
-![1](https://github.com/rushikesh121/MovieMate/assets/60637264/e619b952-9d9c-49bb-92df-969b586a4520)
+
+![1](https://github.com/rushikesh121/MovieMate/assets/60637264/e619b952-9d9c-49bb-92df-969b586a4520) 
+
 ![2](https://github.com/rushikesh121/MovieMate/assets/60637264/24d8b96f-6604-4c3b-ae9c-d8fcadc773e1)
+
 ![3](https://github.com/rushikesh121/MovieMate/assets/60637264/bb9a9d9e-11ca-4137-9d75-14c6c831792e)
+
 ![4](https://github.com/rushikesh121/MovieMate/assets/60637264/e46382a0-ee4f-4622-a99f-22e0eb316940)
