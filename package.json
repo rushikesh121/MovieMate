@@ -1,11 +1,13 @@
 {
+  "homepage": "https://rushikesh121.github.io/MovieMatePages",
   "name": "rishi",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
   "scripts": {
-    "build": "(npx parcel ./public/index.html) & npx parcel watch ./public/index.html",
-
+    "start": "npx parcel ./public/index.html",
+    "build": "parcel build ./public/index.html",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
